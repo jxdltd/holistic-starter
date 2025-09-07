@@ -8,4 +8,6 @@
 
 ## Packages
 
+- [`@repo/config`](packages/config/readme.md) - Common Configuration.
+- [`@repo/database`](packages/database/readme.md) - Database.
 - [`@repo/ui`](packages/ui/readme.md) - Design System.
