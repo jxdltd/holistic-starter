@@ -8,4 +8,4 @@
 
 ## Packages
 
-- [`@repo/ui`](packages/ui/readme.md)
+- [`@repo/ui`](packages/ui/readme.md) - Design System.
