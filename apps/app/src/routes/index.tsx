@@ -1,5 +1,6 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { Button } from "@repo/ui/components/button";
+import { AppSidebar } from "../components/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -7,9 +8,12 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div>
-      <div className="bg-primary">Hello</div>
-      <Button>Hello, World!</Button>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        <div>Hello, World!</div>
+      </main>
+    </SidebarProvider>
   );
 }
