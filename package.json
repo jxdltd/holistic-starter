@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build"
+    "build": "turbo build",
+    "push": "turbo push"
   },
   "devDependencies": {
     "@types/bun": "latest",

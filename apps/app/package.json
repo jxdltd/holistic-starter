@@ -7,6 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@repo/database": "workspace:*",
     "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "^4.1.13",
