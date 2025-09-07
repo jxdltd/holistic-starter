@@ -7,6 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@repo/config": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-router": "^1.131.35",
@@ -14,7 +15,9 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwindcss": "^4.1.13",
-    "vite": "^7.1.4"
+    "vite": "^7.1.4",
+    "@t3-oss/env-core": "^0.13.8",
+        "zod": "^4.1.5"
   },
   "devDependencies": {
     "@types/react": "^19.1.12",
