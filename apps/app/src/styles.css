@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "@repo/ui/styles.css";
+
+/* Find all Tailwind classes in the project */
+@source "../../../**/*.{ts,tsx}";
