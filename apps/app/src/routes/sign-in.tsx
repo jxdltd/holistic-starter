@@ -6,6 +6,9 @@ import { auth } from "@repo/auth/client";
 
 export const Route = createFileRoute("/sign-in")({
   component: RouteComponent,
+  head: () => ({
+    meta: [{ title: "Sign In" }],
+  }),
 });
 
 function RouteComponent() {
