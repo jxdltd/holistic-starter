@@ -200,6 +200,7 @@
     },
   },
   "trustedDependencies": [
+    "@polar-sh/sdk",
     "inngest-cli",
   ],
   "packages": {
