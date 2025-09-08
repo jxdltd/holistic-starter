@@ -13,10 +13,12 @@ import { createServerRootRoute } from '@tanstack/react-start/server'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExamplesSyncElectricRouteImport } from './routes/examples/sync-electric'
 import { Route as ExamplesSyncDbRouteImport } from './routes/examples/sync-db'
 import { Route as ExamplesBillingRouteImport } from './routes/examples/billing'
 import { Route as ExamplesBasicRouteImport } from './routes/examples/basic'
 import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
+import { ServerRoute as ApiShapesTodosServerRouteImport } from './routes/api/shapes/todos'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
 
 const rootServerRouteImport = createServerRootRoute()
@@ -29,6 +31,11 @@ const SignInRoute = SignInRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplesSyncElectricRoute = ExamplesSyncElectricRouteImport.update({
+  id: '/examples/sync-electric',
+  path: '/examples/sync-electric',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamplesSyncDbRoute = ExamplesSyncDbRouteImport.update({
@@ -51,6 +58,11 @@ const ApiInngestServerRoute = ApiInngestServerRouteImport.update({
   path: '/api/inngest',
   getParentRoute: () => rootServerRouteImport,
 } as any)
+const ApiShapesTodosServerRoute = ApiShapesTodosServerRouteImport.update({
+  id: '/api/shapes/todos',
+  path: '/api/shapes/todos',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -63,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/examples/basic': typeof ExamplesBasicRoute
   '/examples/billing': typeof ExamplesBillingRoute
   '/examples/sync-db': typeof ExamplesSyncDbRoute
+  '/examples/sync-electric': typeof ExamplesSyncElectricRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +83,7 @@ export interface FileRoutesByTo {
   '/examples/basic': typeof ExamplesBasicRoute
   '/examples/billing': typeof ExamplesBillingRoute
   '/examples/sync-db': typeof ExamplesSyncDbRoute
+  '/examples/sync-electric': typeof ExamplesSyncElectricRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,6 +92,7 @@ export interface FileRoutesById {
   '/examples/basic': typeof ExamplesBasicRoute
   '/examples/billing': typeof ExamplesBillingRoute
   '/examples/sync-db': typeof ExamplesSyncDbRoute
+  '/examples/sync-electric': typeof ExamplesSyncElectricRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -87,6 +102,7 @@ export interface FileRouteTypes {
     | '/examples/basic'
     | '/examples/billing'
     | '/examples/sync-db'
+    | '/examples/sync-electric'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -94,6 +110,7 @@ export interface FileRouteTypes {
     | '/examples/basic'
     | '/examples/billing'
     | '/examples/sync-db'
+    | '/examples/sync-electric'
   id:
     | '__root__'
     | '/'
@@ -101,6 +118,7 @@ export interface FileRouteTypes {
     | '/examples/basic'
     | '/examples/billing'
     | '/examples/sync-db'
+    | '/examples/sync-electric'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -109,31 +127,36 @@ export interface RootRouteChildren {
   ExamplesBasicRoute: typeof ExamplesBasicRoute
   ExamplesBillingRoute: typeof ExamplesBillingRoute
   ExamplesSyncDbRoute: typeof ExamplesSyncDbRoute
+  ExamplesSyncElectricRoute: typeof ExamplesSyncElectricRoute
 }
 export interface FileServerRoutesByFullPath {
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesByTo {
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/inngest' | '/api/auth/$'
+  fullPaths: '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/inngest' | '/api/auth/$'
-  id: '__root__' | '/api/inngest' | '/api/auth/$'
+  to: '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
+  id: '__root__' | '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
   ApiInngestServerRoute: typeof ApiInngestServerRoute
   ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
+  ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -150,6 +173,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/examples/sync-electric': {
+      id: '/examples/sync-electric'
+      path: '/examples/sync-electric'
+      fullPath: '/examples/sync-electric'
+      preLoaderRoute: typeof ExamplesSyncElectricRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/examples/sync-db': {
@@ -184,6 +214,13 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiInngestServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
+    '/api/shapes/todos': {
+      id: '/api/shapes/todos'
+      path: '/api/shapes/todos'
+      fullPath: '/api/shapes/todos'
+      preLoaderRoute: typeof ApiShapesTodosServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -200,6 +237,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExamplesBasicRoute: ExamplesBasicRoute,
   ExamplesBillingRoute: ExamplesBillingRoute,
   ExamplesSyncDbRoute: ExamplesSyncDbRoute,
+  ExamplesSyncElectricRoute: ExamplesSyncElectricRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
@@ -207,6 +245,7 @@ export const routeTree = rootRouteImport
 const rootServerRouteChildren: RootServerRouteChildren = {
   ApiInngestServerRoute: ApiInngestServerRoute,
   ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
+  ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
   ._addFileChildren(rootServerRouteChildren)

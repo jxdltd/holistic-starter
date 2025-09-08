@@ -45,7 +45,9 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton>Sync (Electric)</SidebarMenuButton>
+                <SidebarMenuButton asChild>
+                  <Link to="/examples/sync-electric">Sync (Electric)</Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
