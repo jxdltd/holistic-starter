@@ -159,6 +159,9 @@ importers:
 
   packages/collections:
     dependencies:
+      '@repo/functions':
+        specifier: workspace:*
+        version: link:../functions
       '@t3-oss/env-core':
         specifier: ^0.13.8
         version: 0.13.8(typescript@5.9.2)(zod@4.1.5)

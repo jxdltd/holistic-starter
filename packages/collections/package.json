@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {},
 	"dependencies": {
+		"@repo/functions": "workspace:*",
 		"@t3-oss/env-core": "^0.13.8",
 		"@tanstack/electric-db-collection": "^0.1.13",
 		"@tanstack/query-core": "^5.87.1",
