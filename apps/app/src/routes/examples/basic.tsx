@@ -6,6 +6,7 @@ import { createTodo, getTodos } from "../../todos";
 import { useState } from "react";
 import { Input } from "@repo/ui/components/input";
 import { Button } from "@repo/ui/components/button";
+import { Checkbox } from "@repo/ui/components/checkbox";
 
 export const Route = createFileRoute("/examples/basic")({
   component: Home,
@@ -28,29 +29,46 @@ function Home() {
   const router = useRouter();
 
   const [title, setTitle] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     createTodo({ data: { title } }).then(() => {
       router.invalidate();
+      setTitle("");
+      setIsLoading(false);
     });
   };
 
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
-        <SidebarTrigger />
+      <main className="p-4">
         <h1 className="text-2xl font-bold">Basic Todos</h1>
-        <p>A simple todo list built only with server functions.</p>
-        <div>
+        <p className="mb-4">
+          A simple todo list built only with server functions.
+        </p>
+        <div className="mb-4">
           {todos.map((todo) => (
-            <div key={todo.id}>{todo.title}</div>
+            <div key={todo.id} className="flex items-center gap-2">
+              <Checkbox />
+              {todo.title}
+            </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit}>
-          <Input value={title} onChange={(e) => setTitle(e.target.value)} />
-          <Button type="submit">Add</Button>
+        <form
+          onSubmit={handleSubmit}
+          className="flex gap-2 p-3 bg-muted w-full rounded-lg"
+        >
+          <Input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="bg-white"
+          />
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? "Adding..." : "Add"}
+          </Button>
         </form>
       </main>
     </SidebarProvider>
