@@ -15,8 +15,5 @@
     "devDependencies": {
         "dotenv": "^17.2.1",
         "typescript": "^5.9.2"
-    },
-    "trustedDependencies": [
-        "@polar-sh/sdk"
-    ]
+    }
 }
