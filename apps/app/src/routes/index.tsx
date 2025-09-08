@@ -3,6 +3,7 @@ import { AppSidebar } from "../components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
 import { getAuth } from "@repo/functions/auth";
 import { Button } from "@repo/ui/components/button";
+import { env } from "../env";
 
 export const Route = createFileRoute("/")({
   component: Home,

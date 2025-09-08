@@ -12,6 +12,6 @@ export const env = () =>
       VITE_SENTRY_DSN: z.string(),
     },
     runtimeEnv: {
-      VITE_SENTRY_DSN: process.env.VITE_SENTRY_DSN,
+      VITE_SENTRY_DSN: import.meta.env.VITE_SENTRY_DSN,
     },
   });
