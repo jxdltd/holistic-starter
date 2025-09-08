@@ -9,7 +9,6 @@ export const Route = createFileRoute("/")({
   loader: async () => {
     const auth = await getAuth();
 
-    throw new Error("Test error");
     if (!auth) {
       throw redirect({ to: "/sign-in" });
     }

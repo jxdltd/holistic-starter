@@ -5,9 +5,10 @@ import {
 } from "@tanstack/react-start/server";
 import { createRouter } from "./router";
 import * as Sentry from "@sentry/tanstackstart-react";
+import { env } from "./env";
 
 Sentry.init({
-  dsn: "https://e18772a3b30cd2d287ef3b0a1944b1e9@o4504352086884352.ingest.us.sentry.io/4509984465420288",
+  dsn: env().VITE_SENTRY_DSN,
   // Adds request headers and IP for users, for more info visit:
   // https://docs.sentry.io/platforms/javascript/guides/tanstackstart-react/configuration/options/#sendDefaultPii
   sendDefaultPii: true,
