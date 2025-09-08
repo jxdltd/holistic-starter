@@ -3,6 +3,7 @@
 		"strict": true,
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"target": "ESNext"
+		"target": "ESNext",
+		"jsx": "react-jsx"
 	}
 }

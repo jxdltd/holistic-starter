@@ -1,7 +1,7 @@
-import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { AppSidebar } from "../components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
-import { getAuth } from "../auth";
+import { getAuth } from "@repo/functions/auth";
 import { Button } from "@repo/ui/components/button";
 
 export const Route = createFileRoute("/")({

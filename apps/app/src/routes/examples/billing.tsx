@@ -1,5 +1,5 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { getAuth } from "../../auth";
+import { getAuth } from "@repo/functions/auth";
 import { auth } from "@repo/auth/client";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@repo/ui/components/button";

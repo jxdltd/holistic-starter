@@ -4,6 +4,8 @@
 	"type": "module",
 	"scripts": {},
 	"dependencies": {
+		"@repo/auth": "workspace:*",
+		"@repo/jobs": "workspace:*",
 		"@repo/database": "workspace:*",
 		"@t3-oss/env-core": "^0.13.8",
 		"zod": "^4.1.5",
