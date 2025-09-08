@@ -11,7 +11,7 @@ export default defineConfig({
   },
   plugins: [
     tsConfigPaths(),
-    tanstackStart({ customViteReactPlugin: true, target: "node-server" }),
+    tanstackStart({ customViteReactPlugin: true, target: "vercel" }),
     viteReact(),
     tailwindcss(),
   ],
