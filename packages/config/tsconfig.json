@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
-        "target": "ESNext"
-    }
+	"compilerOptions": {
+		"strict": true,
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"target": "ESNext"
+	}
 }

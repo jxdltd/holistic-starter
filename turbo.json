@@ -1,19 +1,19 @@
 {
-  "$schema": "https://turborepo.com/schema.json",
-  "ui": "tui",
-  "tasks": {
-    "build": {
-      "outputs": ["dist", ".vercel", ".nitro", ".output", ".tanstack"]
-    },
-    "check-types": {
-      "dependsOn": ["^check-types"]
-    },
-    "dev": {
-      "persistent": true,
-      "cache": false
-    },
-    "push": {
-      "cache": false
-    }
-  }
+	"$schema": "https://turborepo.com/schema.json",
+	"ui": "tui",
+	"tasks": {
+		"build": {
+			"outputs": ["dist", ".vercel", ".nitro", ".output", ".tanstack"]
+		},
+		"check-types": {
+			"dependsOn": ["^check-types"]
+		},
+		"dev": {
+			"persistent": true,
+			"cache": false
+		},
+		"push": {
+			"cache": false
+		}
+	}
 }
