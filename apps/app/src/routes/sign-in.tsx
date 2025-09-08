@@ -12,15 +12,20 @@ function RouteComponent() {
   const [email, setEmail] = useState("");
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
+    <div className="flex flex-col items-center justify-center h-screen bg-accent">
+      <form
+        className="flex flex-col items-center justify-center gap-4 bg-card p-4 rounded-md w-full max-w-md border shadow-xs"
+        onSubmit={(e) => {
+          e.preventDefault();
 
-        auth.signIn.magicLink({ email });
-      }}
-    >
-      <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-      <Button type="submit">Sign in</Button>
-    </form>
+          auth.signIn.magicLink({ email });
+        }}
+      >
+        <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+        <Button type="submit" className="w-full">
+          Sign in
+        </Button>
+      </form>
+    </div>
   );
 }
