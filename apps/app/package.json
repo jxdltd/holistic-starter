@@ -7,15 +7,16 @@
 		"build": "vite build"
 	},
 	"dependencies": {
-		"@repo/forms": "workspace:*",
 		"@repo/auth": "workspace:*",
 		"@repo/collections": "workspace:*",
 		"@repo/config": "workspace:*",
 		"@repo/database": "workspace:*",
 		"@repo/electric": "workspace:*",
+		"@repo/forms": "workspace:*",
 		"@repo/functions": "workspace:*",
 		"@repo/jobs": "workspace:*",
 		"@repo/ui": "workspace:*",
+		"@sentry/tanstackstart-react": "^10.10.0",
 		"@t3-oss/env-core": "^0.13.8",
 		"@tailwindcss/vite": "^4.1.13",
 		"@tanstack/react-db": "^0.1.12",

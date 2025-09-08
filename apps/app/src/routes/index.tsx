@@ -2,12 +2,14 @@ import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { AppSidebar } from "../components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
 import { getAuth } from "../auth";
+import { Button } from "@repo/ui/components/button";
 
 export const Route = createFileRoute("/")({
   component: Home,
   loader: async () => {
     const auth = await getAuth();
 
+    throw new Error("Test error");
     if (!auth) {
       throw redirect({ to: "/sign-in" });
     }
@@ -27,6 +29,13 @@ function Home() {
       <main>
         <SidebarTrigger />
         <div>Hello, {user.email}!</div>
+        <Button
+          onClick={() => {
+            throw new Error("Test error");
+          }}
+        >
+          Throw
+        </Button>
       </main>
     </SidebarProvider>
   );
