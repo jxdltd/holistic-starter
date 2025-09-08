@@ -1,5 +1,7 @@
 {
 	"$schema": "https://turborepo.com/schema.json",
+	"globalDependencies": ["**/.env.*local"],
+	"envMode": "loose",
 	"ui": "tui",
 	"tasks": {
 		"build": {

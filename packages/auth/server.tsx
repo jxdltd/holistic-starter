@@ -6,12 +6,7 @@ import { reactStartCookies } from "better-auth/react-start";
 import { magicLink } from "better-auth/plugins";
 import { resend } from "@repo/mail";
 import { VerifyEmail } from "@repo/mail/emails/magic-link";
-import {
-  usage,
-  portal,
-  checkout,
-  polar as polarPlugin,
-} from "@polar-sh/better-auth";
+import { portal, checkout, polar as polarPlugin } from "@polar-sh/better-auth";
 import { polar } from "@repo/billing";
 
 export const auth = betterAuth({
@@ -49,7 +44,6 @@ export const auth = betterAuth({
           authenticatedUsersOnly: true,
         }),
         portal(),
-        usage(),
       ],
     }),
   ],
