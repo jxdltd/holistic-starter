@@ -15,6 +15,7 @@
     "apps/app": {
       "name": "app",
       "dependencies": {
+        "@polar-sh/sdk": "^0.34.16",
         "@repo/auth": "workspace:*",
         "@repo/collections": "workspace:*",
         "@repo/config": "workspace:*",
