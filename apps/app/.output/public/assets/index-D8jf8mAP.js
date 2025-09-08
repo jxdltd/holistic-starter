@@ -1,1 +1,0 @@
-import{R as s,j as r}from"./main-DJAnHGiT.js";import{S as i,A as o,a}from"./sidebar-7jcn3lOG.js";import"./button-BDX-2Pnw.js";import"./index-CLOoIZyZ.js";function p(){const{user:e}=s.useLoaderData();return r.jsxs(i,{children:[r.jsx(o,{}),r.jsxs("main",{children:[r.jsx(a,{}),r.jsxs("div",{children:["Hello, ",e.email,"!"]})]})]})}export{p as component};
