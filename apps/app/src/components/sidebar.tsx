@@ -39,7 +39,9 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton>Sync (TanStack DB)</SidebarMenuButton>
+                <SidebarMenuButton asChild>
+                  <Link to="/examples/sync-db">Sync (TanStack DB)</Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>Sync (Electric)</SidebarMenuButton>

@@ -13,6 +13,7 @@ import { createServerRootRoute } from '@tanstack/react-start/server'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExamplesSyncDbRouteImport } from './routes/examples/sync-db'
 import { Route as ExamplesBasicRouteImport } from './routes/examples/basic'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
 
@@ -26,6 +27,11 @@ const SignInRoute = SignInRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplesSyncDbRoute = ExamplesSyncDbRouteImport.update({
+  id: '/examples/sync-db',
+  path: '/examples/sync-db',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamplesBasicRoute = ExamplesBasicRouteImport.update({
@@ -43,30 +49,34 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sign-in': typeof SignInRoute
   '/examples/basic': typeof ExamplesBasicRoute
+  '/examples/sync-db': typeof ExamplesSyncDbRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sign-in': typeof SignInRoute
   '/examples/basic': typeof ExamplesBasicRoute
+  '/examples/sync-db': typeof ExamplesSyncDbRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sign-in': typeof SignInRoute
   '/examples/basic': typeof ExamplesBasicRoute
+  '/examples/sync-db': typeof ExamplesSyncDbRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sign-in' | '/examples/basic'
+  fullPaths: '/' | '/sign-in' | '/examples/basic' | '/examples/sync-db'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sign-in' | '/examples/basic'
-  id: '__root__' | '/' | '/sign-in' | '/examples/basic'
+  to: '/' | '/sign-in' | '/examples/basic' | '/examples/sync-db'
+  id: '__root__' | '/' | '/sign-in' | '/examples/basic' | '/examples/sync-db'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SignInRoute: typeof SignInRoute
   ExamplesBasicRoute: typeof ExamplesBasicRoute
+  ExamplesSyncDbRoute: typeof ExamplesSyncDbRoute
 }
 export interface FileServerRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatServerRoute
@@ -106,6 +116,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/examples/sync-db': {
+      id: '/examples/sync-db'
+      path: '/examples/sync-db'
+      fullPath: '/examples/sync-db'
+      preLoaderRoute: typeof ExamplesSyncDbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/examples/basic': {
       id: '/examples/basic'
       path: '/examples/basic'
@@ -131,6 +148,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SignInRoute: SignInRoute,
   ExamplesBasicRoute: ExamplesBasicRoute,
+  ExamplesSyncDbRoute: ExamplesSyncDbRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
