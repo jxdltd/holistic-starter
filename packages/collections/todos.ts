@@ -6,17 +6,17 @@ import { QueryClient } from "@tanstack/query-core";
 const queryClient = new QueryClient();
 
 export const todoCollection = createCollection(
-  queryCollectionOptions({
-    queryClient,
-    queryKey: ["todos"],
-    queryFn: async () => {
-      return getTodos();
-    },
-    getKey: (item) => item.id,
-    onInsert: async ({ transaction }) => {
-      const { modified: newTodo } = transaction.mutations[0];
+	queryCollectionOptions({
+		queryClient,
+		queryKey: ["todos"],
+		queryFn: async () => {
+			return getTodos();
+		},
+		getKey: (item) => item.id,
+		onInsert: async ({ transaction }) => {
+			const { modified: newTodo } = transaction.mutations[0];
 
-      await createTodo({ data: { title: newTodo.title } });
-    },
-  })
+			await createTodo({ data: { title: newTodo.title } });
+		},
+	}),
 );

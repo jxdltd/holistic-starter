@@ -1,16 +1,16 @@
 {
-    "name": "@repo/auth",
-    "private": true,
-    "type": "module",
-    "dependencies": {
-        "@repo/database": "workspace:*",
-        "@repo/mail": "workspace:*",
-        "@t3-oss/env-core": "^0.13.8",
-        "better-auth": "^1.3.7",
-        "zod": "^4.1.5"
-    },
-    "devDependencies": {
-        "dotenv": "^17.2.1",
-        "typescript": "^5.9.2"
-    }
+	"name": "@repo/auth",
+	"private": true,
+	"type": "module",
+	"dependencies": {
+		"@repo/database": "workspace:*",
+		"@repo/mail": "workspace:*",
+		"@t3-oss/env-core": "^0.13.8",
+		"better-auth": "^1.3.7",
+		"zod": "^4.1.5"
+	},
+	"devDependencies": {
+		"dotenv": "^17.2.1",
+		"typescript": "^5.9.2"
+	}
 }

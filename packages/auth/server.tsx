@@ -8,24 +8,24 @@ import { resend } from "@repo/mail";
 import { VerifyEmail } from "@repo/mail/emails/magic-link";
 
 export const auth = betterAuth({
-  emailAndPassword: {
-    enabled: true,
-  },
-  database: drizzleAdapter(db, {
-    provider: "pg",
-    schema,
-  }),
-  plugins: [
-    reactStartCookies(),
-    magicLink({
-      sendMagicLink: async ({ email, url }) => {
-        await resend.emails.send({
-          from: "noreply@updates.buildhype.dev",
-          to: email,
-          subject: "Magic Link",
-          react: <VerifyEmail to={{ email }} callbackUrl={url} />,
-        });
-      },
-    }),
-  ],
+	emailAndPassword: {
+		enabled: true,
+	},
+	database: drizzleAdapter(db, {
+		provider: "pg",
+		schema,
+	}),
+	plugins: [
+		reactStartCookies(),
+		magicLink({
+			sendMagicLink: async ({ email, url }) => {
+				await resend.emails.send({
+					from: "noreply@updates.buildhype.dev",
+					to: email,
+					subject: "Magic Link",
+					react: <VerifyEmail to={{ email }} callbackUrl={url} />,
+				});
+			},
+		}),
+	],
 });

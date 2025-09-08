@@ -8,297 +8,297 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createServerRootRoute } from '@tanstack/react-start/server'
+import { createServerRootRoute } from "@tanstack/react-start/server";
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignInRouteImport } from './routes/sign-in'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ExamplesSyncElectricRouteImport } from './routes/examples/sync-electric'
-import { Route as ExamplesSyncDbRouteImport } from './routes/examples/sync-db'
-import { Route as ExamplesBillingRouteImport } from './routes/examples/billing'
-import { Route as ExamplesBasicRouteImport } from './routes/examples/basic'
-import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
-import { ServerRoute as ApiCheckoutServerRouteImport } from './routes/api/checkout'
-import { ServerRoute as ApiShapesTodosServerRouteImport } from './routes/api/shapes/todos'
-import { ServerRoute as ApiBillingPortalServerRouteImport } from './routes/api/billing/portal'
-import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as SignInRouteImport } from "./routes/sign-in";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ExamplesSyncElectricRouteImport } from "./routes/examples/sync-electric";
+import { Route as ExamplesSyncDbRouteImport } from "./routes/examples/sync-db";
+import { Route as ExamplesBillingRouteImport } from "./routes/examples/billing";
+import { Route as ExamplesBasicRouteImport } from "./routes/examples/basic";
+import { ServerRoute as ApiInngestServerRouteImport } from "./routes/api/inngest";
+import { ServerRoute as ApiCheckoutServerRouteImport } from "./routes/api/checkout";
+import { ServerRoute as ApiShapesTodosServerRouteImport } from "./routes/api/shapes/todos";
+import { ServerRoute as ApiBillingPortalServerRouteImport } from "./routes/api/billing/portal";
+import { ServerRoute as ApiAuthSplatServerRouteImport } from "./routes/api/auth.$";
 
-const rootServerRouteImport = createServerRootRoute()
+const rootServerRouteImport = createServerRootRoute();
 
 const SignInRoute = SignInRouteImport.update({
-  id: '/sign-in',
-  path: '/sign-in',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/sign-in",
+	path: "/sign-in",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/",
+	path: "/",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const ExamplesSyncElectricRoute = ExamplesSyncElectricRouteImport.update({
-  id: '/examples/sync-electric',
-  path: '/examples/sync-electric',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/examples/sync-electric",
+	path: "/examples/sync-electric",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const ExamplesSyncDbRoute = ExamplesSyncDbRouteImport.update({
-  id: '/examples/sync-db',
-  path: '/examples/sync-db',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/examples/sync-db",
+	path: "/examples/sync-db",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const ExamplesBillingRoute = ExamplesBillingRouteImport.update({
-  id: '/examples/billing',
-  path: '/examples/billing',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/examples/billing",
+	path: "/examples/billing",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const ExamplesBasicRoute = ExamplesBasicRouteImport.update({
-  id: '/examples/basic',
-  path: '/examples/basic',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/examples/basic",
+	path: "/examples/basic",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const ApiInngestServerRoute = ApiInngestServerRouteImport.update({
-  id: '/api/inngest',
-  path: '/api/inngest',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/inngest",
+	path: "/api/inngest",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiCheckoutServerRoute = ApiCheckoutServerRouteImport.update({
-  id: '/api/checkout',
-  path: '/api/checkout',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/checkout",
+	path: "/api/checkout",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiShapesTodosServerRoute = ApiShapesTodosServerRouteImport.update({
-  id: '/api/shapes/todos',
-  path: '/api/shapes/todos',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/shapes/todos",
+	path: "/api/shapes/todos",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiBillingPortalServerRoute = ApiBillingPortalServerRouteImport.update({
-  id: '/api/billing/portal',
-  path: '/api/billing/portal',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/billing/portal",
+	path: "/api/billing/portal",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/auth/$",
+	path: "/api/auth/$",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/sign-in': typeof SignInRoute
-  '/examples/basic': typeof ExamplesBasicRoute
-  '/examples/billing': typeof ExamplesBillingRoute
-  '/examples/sync-db': typeof ExamplesSyncDbRoute
-  '/examples/sync-electric': typeof ExamplesSyncElectricRoute
+	"/": typeof IndexRoute;
+	"/sign-in": typeof SignInRoute;
+	"/examples/basic": typeof ExamplesBasicRoute;
+	"/examples/billing": typeof ExamplesBillingRoute;
+	"/examples/sync-db": typeof ExamplesSyncDbRoute;
+	"/examples/sync-electric": typeof ExamplesSyncElectricRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/sign-in': typeof SignInRoute
-  '/examples/basic': typeof ExamplesBasicRoute
-  '/examples/billing': typeof ExamplesBillingRoute
-  '/examples/sync-db': typeof ExamplesSyncDbRoute
-  '/examples/sync-electric': typeof ExamplesSyncElectricRoute
+	"/": typeof IndexRoute;
+	"/sign-in": typeof SignInRoute;
+	"/examples/basic": typeof ExamplesBasicRoute;
+	"/examples/billing": typeof ExamplesBillingRoute;
+	"/examples/sync-db": typeof ExamplesSyncDbRoute;
+	"/examples/sync-electric": typeof ExamplesSyncElectricRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/sign-in': typeof SignInRoute
-  '/examples/basic': typeof ExamplesBasicRoute
-  '/examples/billing': typeof ExamplesBillingRoute
-  '/examples/sync-db': typeof ExamplesSyncDbRoute
-  '/examples/sync-electric': typeof ExamplesSyncElectricRoute
+	__root__: typeof rootRouteImport;
+	"/": typeof IndexRoute;
+	"/sign-in": typeof SignInRoute;
+	"/examples/basic": typeof ExamplesBasicRoute;
+	"/examples/billing": typeof ExamplesBillingRoute;
+	"/examples/sync-db": typeof ExamplesSyncDbRoute;
+	"/examples/sync-electric": typeof ExamplesSyncElectricRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/sign-in'
-    | '/examples/basic'
-    | '/examples/billing'
-    | '/examples/sync-db'
-    | '/examples/sync-electric'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/sign-in'
-    | '/examples/basic'
-    | '/examples/billing'
-    | '/examples/sync-db'
-    | '/examples/sync-electric'
-  id:
-    | '__root__'
-    | '/'
-    | '/sign-in'
-    | '/examples/basic'
-    | '/examples/billing'
-    | '/examples/sync-db'
-    | '/examples/sync-electric'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths:
+		| "/"
+		| "/sign-in"
+		| "/examples/basic"
+		| "/examples/billing"
+		| "/examples/sync-db"
+		| "/examples/sync-electric";
+	fileRoutesByTo: FileRoutesByTo;
+	to:
+		| "/"
+		| "/sign-in"
+		| "/examples/basic"
+		| "/examples/billing"
+		| "/examples/sync-db"
+		| "/examples/sync-electric";
+	id:
+		| "__root__"
+		| "/"
+		| "/sign-in"
+		| "/examples/basic"
+		| "/examples/billing"
+		| "/examples/sync-db"
+		| "/examples/sync-electric";
+	fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  SignInRoute: typeof SignInRoute
-  ExamplesBasicRoute: typeof ExamplesBasicRoute
-  ExamplesBillingRoute: typeof ExamplesBillingRoute
-  ExamplesSyncDbRoute: typeof ExamplesSyncDbRoute
-  ExamplesSyncElectricRoute: typeof ExamplesSyncElectricRoute
+	IndexRoute: typeof IndexRoute;
+	SignInRoute: typeof SignInRoute;
+	ExamplesBasicRoute: typeof ExamplesBasicRoute;
+	ExamplesBillingRoute: typeof ExamplesBillingRoute;
+	ExamplesSyncDbRoute: typeof ExamplesSyncDbRoute;
+	ExamplesSyncElectricRoute: typeof ExamplesSyncElectricRoute;
 }
 export interface FileServerRoutesByFullPath {
-  '/api/checkout': typeof ApiCheckoutServerRoute
-  '/api/inngest': typeof ApiInngestServerRoute
-  '/api/auth/$': typeof ApiAuthSplatServerRoute
-  '/api/billing/portal': typeof ApiBillingPortalServerRoute
-  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
+	"/api/checkout": typeof ApiCheckoutServerRoute;
+	"/api/inngest": typeof ApiInngestServerRoute;
+	"/api/auth/$": typeof ApiAuthSplatServerRoute;
+	"/api/billing/portal": typeof ApiBillingPortalServerRoute;
+	"/api/shapes/todos": typeof ApiShapesTodosServerRoute;
 }
 export interface FileServerRoutesByTo {
-  '/api/checkout': typeof ApiCheckoutServerRoute
-  '/api/inngest': typeof ApiInngestServerRoute
-  '/api/auth/$': typeof ApiAuthSplatServerRoute
-  '/api/billing/portal': typeof ApiBillingPortalServerRoute
-  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
+	"/api/checkout": typeof ApiCheckoutServerRoute;
+	"/api/inngest": typeof ApiInngestServerRoute;
+	"/api/auth/$": typeof ApiAuthSplatServerRoute;
+	"/api/billing/portal": typeof ApiBillingPortalServerRoute;
+	"/api/shapes/todos": typeof ApiShapesTodosServerRoute;
 }
 export interface FileServerRoutesById {
-  __root__: typeof rootServerRouteImport
-  '/api/checkout': typeof ApiCheckoutServerRoute
-  '/api/inngest': typeof ApiInngestServerRoute
-  '/api/auth/$': typeof ApiAuthSplatServerRoute
-  '/api/billing/portal': typeof ApiBillingPortalServerRoute
-  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
+	__root__: typeof rootServerRouteImport;
+	"/api/checkout": typeof ApiCheckoutServerRoute;
+	"/api/inngest": typeof ApiInngestServerRoute;
+	"/api/auth/$": typeof ApiAuthSplatServerRoute;
+	"/api/billing/portal": typeof ApiBillingPortalServerRoute;
+	"/api/shapes/todos": typeof ApiShapesTodosServerRoute;
 }
 export interface FileServerRouteTypes {
-  fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths:
-    | '/api/checkout'
-    | '/api/inngest'
-    | '/api/auth/$'
-    | '/api/billing/portal'
-    | '/api/shapes/todos'
-  fileServerRoutesByTo: FileServerRoutesByTo
-  to:
-    | '/api/checkout'
-    | '/api/inngest'
-    | '/api/auth/$'
-    | '/api/billing/portal'
-    | '/api/shapes/todos'
-  id:
-    | '__root__'
-    | '/api/checkout'
-    | '/api/inngest'
-    | '/api/auth/$'
-    | '/api/billing/portal'
-    | '/api/shapes/todos'
-  fileServerRoutesById: FileServerRoutesById
+	fileServerRoutesByFullPath: FileServerRoutesByFullPath;
+	fullPaths:
+		| "/api/checkout"
+		| "/api/inngest"
+		| "/api/auth/$"
+		| "/api/billing/portal"
+		| "/api/shapes/todos";
+	fileServerRoutesByTo: FileServerRoutesByTo;
+	to:
+		| "/api/checkout"
+		| "/api/inngest"
+		| "/api/auth/$"
+		| "/api/billing/portal"
+		| "/api/shapes/todos";
+	id:
+		| "__root__"
+		| "/api/checkout"
+		| "/api/inngest"
+		| "/api/auth/$"
+		| "/api/billing/portal"
+		| "/api/shapes/todos";
+	fileServerRoutesById: FileServerRoutesById;
 }
 export interface RootServerRouteChildren {
-  ApiCheckoutServerRoute: typeof ApiCheckoutServerRoute
-  ApiInngestServerRoute: typeof ApiInngestServerRoute
-  ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
-  ApiBillingPortalServerRoute: typeof ApiBillingPortalServerRoute
-  ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute
+	ApiCheckoutServerRoute: typeof ApiCheckoutServerRoute;
+	ApiInngestServerRoute: typeof ApiInngestServerRoute;
+	ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute;
+	ApiBillingPortalServerRoute: typeof ApiBillingPortalServerRoute;
+	ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute;
 }
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/sign-in': {
-      id: '/sign-in'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof SignInRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/examples/sync-electric': {
-      id: '/examples/sync-electric'
-      path: '/examples/sync-electric'
-      fullPath: '/examples/sync-electric'
-      preLoaderRoute: typeof ExamplesSyncElectricRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/examples/sync-db': {
-      id: '/examples/sync-db'
-      path: '/examples/sync-db'
-      fullPath: '/examples/sync-db'
-      preLoaderRoute: typeof ExamplesSyncDbRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/examples/billing': {
-      id: '/examples/billing'
-      path: '/examples/billing'
-      fullPath: '/examples/billing'
-      preLoaderRoute: typeof ExamplesBillingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/examples/basic': {
-      id: '/examples/basic'
-      path: '/examples/basic'
-      fullPath: '/examples/basic'
-      preLoaderRoute: typeof ExamplesBasicRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
+declare module "@tanstack/react-router" {
+	interface FileRoutesByPath {
+		"/sign-in": {
+			id: "/sign-in";
+			path: "/sign-in";
+			fullPath: "/sign-in";
+			preLoaderRoute: typeof SignInRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/": {
+			id: "/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof IndexRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/examples/sync-electric": {
+			id: "/examples/sync-electric";
+			path: "/examples/sync-electric";
+			fullPath: "/examples/sync-electric";
+			preLoaderRoute: typeof ExamplesSyncElectricRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/examples/sync-db": {
+			id: "/examples/sync-db";
+			path: "/examples/sync-db";
+			fullPath: "/examples/sync-db";
+			preLoaderRoute: typeof ExamplesSyncDbRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/examples/billing": {
+			id: "/examples/billing";
+			path: "/examples/billing";
+			fullPath: "/examples/billing";
+			preLoaderRoute: typeof ExamplesBillingRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/examples/basic": {
+			id: "/examples/basic";
+			path: "/examples/basic";
+			fullPath: "/examples/basic";
+			preLoaderRoute: typeof ExamplesBasicRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+	}
 }
-declare module '@tanstack/react-start/server' {
-  interface ServerFileRoutesByPath {
-    '/api/inngest': {
-      id: '/api/inngest'
-      path: '/api/inngest'
-      fullPath: '/api/inngest'
-      preLoaderRoute: typeof ApiInngestServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/checkout': {
-      id: '/api/checkout'
-      path: '/api/checkout'
-      fullPath: '/api/checkout'
-      preLoaderRoute: typeof ApiCheckoutServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/shapes/todos': {
-      id: '/api/shapes/todos'
-      path: '/api/shapes/todos'
-      fullPath: '/api/shapes/todos'
-      preLoaderRoute: typeof ApiShapesTodosServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/billing/portal': {
-      id: '/api/billing/portal'
-      path: '/api/billing/portal'
-      fullPath: '/api/billing/portal'
-      preLoaderRoute: typeof ApiBillingPortalServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-  }
+declare module "@tanstack/react-start/server" {
+	interface ServerFileRoutesByPath {
+		"/api/inngest": {
+			id: "/api/inngest";
+			path: "/api/inngest";
+			fullPath: "/api/inngest";
+			preLoaderRoute: typeof ApiInngestServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/checkout": {
+			id: "/api/checkout";
+			path: "/api/checkout";
+			fullPath: "/api/checkout";
+			preLoaderRoute: typeof ApiCheckoutServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/shapes/todos": {
+			id: "/api/shapes/todos";
+			path: "/api/shapes/todos";
+			fullPath: "/api/shapes/todos";
+			preLoaderRoute: typeof ApiShapesTodosServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/billing/portal": {
+			id: "/api/billing/portal";
+			path: "/api/billing/portal";
+			fullPath: "/api/billing/portal";
+			preLoaderRoute: typeof ApiBillingPortalServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/auth/$": {
+			id: "/api/auth/$";
+			path: "/api/auth/$";
+			fullPath: "/api/auth/$";
+			preLoaderRoute: typeof ApiAuthSplatServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+	}
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  SignInRoute: SignInRoute,
-  ExamplesBasicRoute: ExamplesBasicRoute,
-  ExamplesBillingRoute: ExamplesBillingRoute,
-  ExamplesSyncDbRoute: ExamplesSyncDbRoute,
-  ExamplesSyncElectricRoute: ExamplesSyncElectricRoute,
-}
+	IndexRoute: IndexRoute,
+	SignInRoute: SignInRoute,
+	ExamplesBasicRoute: ExamplesBasicRoute,
+	ExamplesBillingRoute: ExamplesBillingRoute,
+	ExamplesSyncDbRoute: ExamplesSyncDbRoute,
+	ExamplesSyncElectricRoute: ExamplesSyncElectricRoute,
+};
 export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+	._addFileChildren(rootRouteChildren)
+	._addFileTypes<FileRouteTypes>();
 const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiCheckoutServerRoute: ApiCheckoutServerRoute,
-  ApiInngestServerRoute: ApiInngestServerRoute,
-  ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
-  ApiBillingPortalServerRoute: ApiBillingPortalServerRoute,
-  ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
-}
+	ApiCheckoutServerRoute: ApiCheckoutServerRoute,
+	ApiInngestServerRoute: ApiInngestServerRoute,
+	ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
+	ApiBillingPortalServerRoute: ApiBillingPortalServerRoute,
+	ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
+};
 export const serverRouteTree = rootServerRouteImport
-  ._addFileChildren(rootServerRouteChildren)
-  ._addFileTypes<FileServerRouteTypes>()
+	._addFileChildren(rootServerRouteChildren)
+	._addFileTypes<FileServerRouteTypes>();

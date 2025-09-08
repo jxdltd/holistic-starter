@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
-        "target": "ESNext",
-        "jsx": "react-jsx"
-    }
+	"compilerOptions": {
+		"strict": true,
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"target": "ESNext",
+		"jsx": "react-jsx"
+	}
 }

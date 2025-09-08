@@ -5,32 +5,32 @@ import { products } from "@repo/billing/products";
 import { getSubscriptions } from "@repo/functions/billing";
 
 export const Route = createFileRoute("/examples/billing")({
-  component: RouteComponent,
-  loader: async () => {
-    const session = await getAuth();
+	component: RouteComponent,
+	loader: async () => {
+		const session = await getAuth();
 
-    if (!session) {
-      throw redirect({ to: "/sign-in" });
-    }
+		if (!session) {
+			throw redirect({ to: "/sign-in" });
+		}
 
-    return {
-      subscriptions: await getSubscriptions(),
-    };
-  },
+		return {
+			subscriptions: await getSubscriptions(),
+		};
+	},
 });
 
 function RouteComponent() {
-  const { subscriptions } = Route.useLoaderData();
+	const { subscriptions } = Route.useLoaderData();
 
-  return (
-    <div>
-      <h1>Billing</h1>
-      {subscriptions.map((subscription) => (
-        <div key={subscription.id}>{subscription.product.name}</div>
-      ))}
-      <Button asChild>
-        <a href={`/api/checkout?products=${products.pro.id}`}>Checkout</a>
-      </Button>
-    </div>
-  );
+	return (
+		<div>
+			<h1>Billing</h1>
+			{subscriptions.map((subscription) => (
+				<div key={subscription.id}>{subscription.product.name}</div>
+			))}
+			<Button asChild>
+				<a href={`/api/checkout?products=${products.pro.id}`}>Checkout</a>
+			</Button>
+		</div>
+	);
 }

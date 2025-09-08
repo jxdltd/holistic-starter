@@ -1,23 +1,23 @@
 {
-    "name": "@repo/jobs",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "inngest-cli dev --no-discovery -u http://localhost:3000/api/inngest"
-    },
-    "dependencies": {
-        "@repo/mail": "workspace:*",
-        "@repo/database": "workspace:*",
-        "@t3-oss/env-core": "^0.13.8",
-        "inngest": "^3.40.2",
-        "zod": "^4.1.5"
-    },
-    "devDependencies": {
-        "dotenv": "^17.2.1",
-        "inngest-cli": "^1.11.10",
-        "typescript": "^5.9.2"
-    },
-    "trustedDependencies": [
-        "inngest-cli"
-    ]
+	"name": "@repo/jobs",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "inngest-cli dev --no-discovery -u http://localhost:3000/api/inngest"
+	},
+	"dependencies": {
+		"@repo/mail": "workspace:*",
+		"@repo/database": "workspace:*",
+		"@t3-oss/env-core": "^0.13.8",
+		"inngest": "^3.40.2",
+		"zod": "^4.1.5"
+	},
+	"devDependencies": {
+		"dotenv": "^17.2.1",
+		"inngest-cli": "^1.11.10",
+		"typescript": "^5.9.2"
+	},
+	"trustedDependencies": [
+		"inngest-cli"
+	]
 }

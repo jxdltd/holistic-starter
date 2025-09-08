@@ -4,13 +4,13 @@ import { TextField } from "./text-field";
 import { SubmitButton } from "./submit";
 
 export const { useAppForm } = createFormHook({
-  fieldComponents: {
-    TextField,
-    // NumberField,
-  },
-  formComponents: {
-    SubmitButton,
-  },
-  fieldContext,
-  formContext,
+	fieldComponents: {
+		TextField,
+		// NumberField,
+	},
+	formComponents: {
+		SubmitButton,
+	},
+	fieldContext,
+	formContext,
 });

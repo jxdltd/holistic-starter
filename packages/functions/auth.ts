@@ -4,38 +4,38 @@ import { createMiddleware, createServerFn } from "@tanstack/react-start";
 import { getWebRequest } from "@tanstack/react-start/server";
 
 export const getAuth = createServerFn().handler(async () => {
-  const request = getWebRequest();
+	const request = getWebRequest();
 
-  if (!request) {
-    throw new Error("No request found");
-  }
+	if (!request) {
+		throw new Error("No request found");
+	}
 
-  const resp = await auth.api.getSession({
-    headers: request.headers,
-  });
+	const resp = await auth.api.getSession({
+		headers: request.headers,
+	});
 
-  if (!resp) {
-    return null;
-  }
+	if (!resp) {
+		return null;
+	}
 
-  return {
-    session: resp.session,
-    user: resp.user,
-  };
+	return {
+		session: resp.session,
+		user: resp.user,
+	};
 });
 
 export const authenticatedMiddleware = createMiddleware({
-  type: "function",
+	type: "function",
 }).server(async ({ next }) => {
-  const auth = await getAuth();
+	const auth = await getAuth();
 
-  if (!auth) {
-    throw redirect({ to: "/sign-in" });
-  }
+	if (!auth) {
+		throw redirect({ to: "/sign-in" });
+	}
 
-  return next({
-    context: {
-      ...auth,
-    },
-  });
+	return next({
+		context: {
+			...auth,
+		},
+	});
 });
