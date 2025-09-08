@@ -7,8 +7,6 @@
         "@biomejs/biome": "2.2.3",
         "@types/bun": "latest",
         "turbo": "^2.5.6",
-      },
-      "peerDependencies": {
         "typescript": "^5",
       },
     },
@@ -143,6 +141,7 @@
       "name": "@repo/functions",
       "dependencies": {
         "@repo/auth": "workspace:*",
+        "@repo/billing": "workspace:*",
         "@repo/database": "workspace:*",
         "@repo/jobs": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
@@ -206,12 +205,7 @@
     },
   },
   "trustedDependencies": [
-    "@tailwindcss/oxide",
-    "esbuild",
-    "sharp",
-    "protobufjs",
     "inngest-cli",
-    "@parcel/watcher",
   ],
   "packages": {
     "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "", {}, "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="],
