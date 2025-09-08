@@ -1,0 +1,14 @@
+{
+	"name": "@repo/billing",
+	"private": true,
+	"type": "module",
+	"scripts": {},
+	"dependencies": {
+		"@polar-sh/sdk": "^0.34.16",
+		"@t3-oss/env-core": "^0.13.8",
+		"zod": "^4.1.5"
+	},
+	"devDependencies": {
+		"typescript": "^5.9.2"
+	}
+}
