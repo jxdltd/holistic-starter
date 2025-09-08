@@ -3,8 +3,6 @@
     "private": true,
     "type": "module",
     "dependencies": {
-        "@polar-sh/better-auth": "^1.0.1",
-        "@repo/billing": "workspace:*",
         "@repo/database": "workspace:*",
         "@repo/mail": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
@@ -14,8 +12,5 @@
     "devDependencies": {
         "dotenv": "^17.2.1",
         "typescript": "^5.9.2"
-    },
-    "sideEffects": [
-        "@polar-sh/sdk/webhooks"
-    ]
+    }
 }

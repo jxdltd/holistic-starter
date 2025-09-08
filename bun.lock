@@ -51,8 +51,6 @@
     "packages/auth": {
       "name": "@repo/auth",
       "dependencies": {
-        "@polar-sh/better-auth": "^1.0.1",
-        "@repo/billing": "workspace:*",
         "@repo/database": "workspace:*",
         "@repo/mail": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
@@ -69,6 +67,7 @@
       "dependencies": {
         "@polar-sh/sdk": "^0.34.16",
         "@polar-sh/tanstack-start": "^0.1.5",
+        "@repo/auth": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
         "zod": "^4.1.5",
       },
@@ -696,8 +695,6 @@
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
     "@polar-sh/adapter-utils": ["@polar-sh/adapter-utils@0.2.3", "", { "dependencies": { "@polar-sh/sdk": "^0.34.8" } }, "sha512-ULIV5UEP/DSkaRoeY7QNjTDWM5Th9spiN5ZeOrLJ0G66my0lyT1o2+uK1XOKd7Kwqp56xucgcpu/M2lOCttvvw=="],
-
-    "@polar-sh/better-auth": ["@polar-sh/better-auth@1.1.1", "", { "dependencies": { "zod": "^3.24.2" }, "peerDependencies": { "@polar-sh/sdk": "^0.34.8", "better-auth": "^1.2.7" } }, "sha512-LBeKqQsZWB/reFbnxrpj/hedIz3oYYm7Jz/2IhFIQSnaEpWT/NRXbbfkaFZJ3t1h6D3pBoGWDAQMOZQMS3rWBA=="],
 
     "@polar-sh/sdk": ["@polar-sh/sdk@0.34.16", "", { "dependencies": { "standardwebhooks": "^1.0.0", "zod": "^3.25.76" }, "peerDependencies": { "@modelcontextprotocol/sdk": ">=1.5.0 <1.10.0" }, "optionalPeers": ["@modelcontextprotocol/sdk"], "bin": { "mcp": "bin/mcp-server.js" } }, "sha512-yCY0ve1GF7n/IsQZcc2IHUrC6ep4Vzn0LEKkCkR6AGftx7Ljwws14mD8Q4uG63WHLiGHplfK3cSV05+TUdojdw=="],
 
@@ -2370,8 +2367,6 @@
     "@parcel/watcher/detect-libc": ["detect-libc@1.0.3", "", { "bin": { "detect-libc": "./bin/detect-libc.js" } }, "sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg=="],
 
     "@parcel/watcher-wasm/napi-wasm": ["napi-wasm@1.1.3", "", { "bundled": true }, "sha512-h/4nMGsHjZDCYmQVNODIrYACVJ+I9KItbG+0si6W/jSjdA9JbWDoU4LLeMXVcEQGHjttI2tuXqDrbGF7qkUHHg=="],
-
-    "@polar-sh/better-auth/zod": ["zod@3.24.3", "", {}, "sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg=="],
 
     "@polar-sh/sdk/zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
