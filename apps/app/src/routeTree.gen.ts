@@ -18,6 +18,7 @@ import { Route as ExamplesSyncDbRouteImport } from './routes/examples/sync-db'
 import { Route as ExamplesBillingRouteImport } from './routes/examples/billing'
 import { Route as ExamplesBasicRouteImport } from './routes/examples/basic'
 import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
+import { ServerRoute as ApiCheckoutServerRouteImport } from './routes/api/checkout'
 import { ServerRoute as ApiShapesTodosServerRouteImport } from './routes/api/shapes/todos'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
 
@@ -56,6 +57,11 @@ const ExamplesBasicRoute = ExamplesBasicRouteImport.update({
 const ApiInngestServerRoute = ApiInngestServerRouteImport.update({
   id: '/api/inngest',
   path: '/api/inngest',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiCheckoutServerRoute = ApiCheckoutServerRouteImport.update({
+  id: '/api/checkout',
+  path: '/api/checkout',
   getParentRoute: () => rootServerRouteImport,
 } as any)
 const ApiShapesTodosServerRoute = ApiShapesTodosServerRouteImport.update({
@@ -130,30 +136,43 @@ export interface RootRouteChildren {
   ExamplesSyncElectricRoute: typeof ExamplesSyncElectricRoute
 }
 export interface FileServerRoutesByFullPath {
+  '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesByTo {
+  '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
+  '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
+  fullPaths:
+    | '/api/checkout'
+    | '/api/inngest'
+    | '/api/auth/$'
+    | '/api/shapes/todos'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
-  id: '__root__' | '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
+  to: '/api/checkout' | '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
+  id:
+    | '__root__'
+    | '/api/checkout'
+    | '/api/inngest'
+    | '/api/auth/$'
+    | '/api/shapes/todos'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
+  ApiCheckoutServerRoute: typeof ApiCheckoutServerRoute
   ApiInngestServerRoute: typeof ApiInngestServerRoute
   ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
   ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute
@@ -214,6 +233,13 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiInngestServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
+    '/api/checkout': {
+      id: '/api/checkout'
+      path: '/api/checkout'
+      fullPath: '/api/checkout'
+      preLoaderRoute: typeof ApiCheckoutServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
     '/api/shapes/todos': {
       id: '/api/shapes/todos'
       path: '/api/shapes/todos'
@@ -243,6 +269,7 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
+  ApiCheckoutServerRoute: ApiCheckoutServerRoute,
   ApiInngestServerRoute: ApiInngestServerRoute,
   ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
   ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,

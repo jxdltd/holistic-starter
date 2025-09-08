@@ -5,6 +5,7 @@
 	"scripts": {},
 	"dependencies": {
 		"@polar-sh/sdk": "^0.34.16",
+		"@polar-sh/tanstack-start": "^0.1.5",
 		"@t3-oss/env-core": "^0.13.8",
 		"zod": "^4.1.5"
 	},
