@@ -7,16 +7,19 @@
 		"build": "vite build"
 	},
 	"dependencies": {
-		"@repo/electric": "workspace:*",
-		"@repo/functions": "workspace:*",
-		"@repo/collections": "workspace:*",
-		"@repo/jobs": "workspace:*",
+		"@repo/forms": "workspace:*",
 		"@repo/auth": "workspace:*",
+		"@repo/collections": "workspace:*",
 		"@repo/config": "workspace:*",
 		"@repo/database": "workspace:*",
+		"@repo/electric": "workspace:*",
+		"@repo/functions": "workspace:*",
+		"@repo/jobs": "workspace:*",
 		"@repo/ui": "workspace:*",
 		"@t3-oss/env-core": "^0.13.8",
 		"@tailwindcss/vite": "^4.1.13",
+		"@tanstack/react-db": "^0.1.12",
+		"@tanstack/react-form": "^1.19.4",
 		"@tanstack/react-query": "^5.87.1",
 		"@tanstack/react-router": "^1.131.35",
 		"@tanstack/react-start": "^1.131.35",
@@ -24,8 +27,7 @@
 		"react-dom": "^19.1.1",
 		"tailwindcss": "^4.1.13",
 		"vite": "^7.1.4",
-		"zod": "^4.1.5",
-		"@tanstack/react-db": "^0.1.12"
+		"zod": "^4.1.5"
 	},
 	"devDependencies": {
 		"@types/react": "^19.1.12",

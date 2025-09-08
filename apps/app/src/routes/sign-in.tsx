@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Input } from "@repo/ui/components/input";
-import { Button } from "@repo/ui/components/button";
 import { auth } from "@repo/auth/client";
+import { useAppForm } from "@repo/forms";
+import z from "zod";
 
 export const Route = createFileRoute("/sign-in")({
   component: RouteComponent,
@@ -11,8 +10,22 @@ export const Route = createFileRoute("/sign-in")({
   }),
 });
 
+const formSchema = z.object({
+  email: z.email(),
+});
+
 function RouteComponent() {
-  const [email, setEmail] = useState("");
+  const form = useAppForm({
+    defaultValues: {
+      email: "",
+    },
+    validators: {
+      onSubmit: formSchema,
+    },
+    onSubmit: ({ value }) => {
+      auth.signIn.magicLink({ email: value.email });
+    },
+  });
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-accent">
@@ -20,14 +33,16 @@ function RouteComponent() {
         className="flex flex-col items-center justify-center gap-4 bg-card p-4 rounded-md w-full max-w-md border shadow-xs"
         onSubmit={(e) => {
           e.preventDefault();
-
-          auth.signIn.magicLink({ email });
+          form.handleSubmit();
         }}
       >
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Button type="submit" className="w-full">
-          Sign in
-        </Button>
+        <form.AppField
+          name="email"
+          children={(field) => <field.TextField label="Email" />}
+        />
+        <form.AppForm>
+          <form.SubmitButton>Sign In</form.SubmitButton>
+        </form.AppForm>
       </form>
     </div>
   );

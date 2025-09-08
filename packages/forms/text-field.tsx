@@ -1,0 +1,20 @@
+import { useFieldContext } from "./context";
+import { Input } from "@repo/ui/components/input";
+import { Label } from "@repo/ui/components/label";
+
+export function TextField({ label }: { label: string }) {
+  const field = useFieldContext<string>();
+
+  return (
+    <div className="flex flex-col gap-1 w-full">
+      <Label htmlFor={field.name} className="text-sm font-medium">
+        {label}
+      </Label>
+      <Input
+        id={field.name}
+        value={field.state.value}
+        onChange={(e) => field.handleChange(e.target.value)}
+      />
+    </div>
+  );
+}
