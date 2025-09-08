@@ -18,6 +18,7 @@
         "@repo/auth": "workspace:*",
         "@repo/config": "workspace:*",
         "@repo/database": "workspace:*",
+        "@repo/jobs": "workspace:*",
         "@repo/ui": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
         "@tailwindcss/vite": "^4.1.13",

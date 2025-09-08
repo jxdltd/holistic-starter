@@ -3,6 +3,7 @@ import z from "zod";
 import { authenticatedMiddleware } from "./auth";
 import { db, eq } from "@repo/database";
 import { todo } from "@repo/database/schema";
+import { inngest } from "@repo/jobs/client";
 
 const createTodoSchema = z.object({
   title: z.string().min(1),
@@ -15,10 +16,20 @@ export const createTodo = createServerFn()
     // Simulated delay
     await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 seconds
 
+    const id = crypto.randomUUID();
     await db.insert(todo).values({
-      id: crypto.randomUUID(),
+      id,
       title: data.title,
       userId: context.user.id,
+    });
+
+    await inngest.send({
+      name: "todo/created",
+      data: {
+        todo: {
+          id,
+        },
+      },
     });
   });
 

@@ -3,6 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "dev": "inngest-cli dev --no-discovery -u http://localhost:3000/api/inngest"
     },
     "dependencies": {
         "@repo/mail": "workspace:*",
