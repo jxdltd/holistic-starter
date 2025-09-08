@@ -61,8 +61,8 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton onClick={() => auth.customer.portal()}>
-              Billing
+            <SidebarMenuButton asChild>
+              <a href="/api/billing/portal">Billing</a>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>

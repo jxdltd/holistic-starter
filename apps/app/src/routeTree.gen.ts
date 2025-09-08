@@ -20,6 +20,7 @@ import { Route as ExamplesBasicRouteImport } from './routes/examples/basic'
 import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
 import { ServerRoute as ApiCheckoutServerRouteImport } from './routes/api/checkout'
 import { ServerRoute as ApiShapesTodosServerRouteImport } from './routes/api/shapes/todos'
+import { ServerRoute as ApiBillingPortalServerRouteImport } from './routes/api/billing/portal'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
 
 const rootServerRouteImport = createServerRootRoute()
@@ -67,6 +68,11 @@ const ApiCheckoutServerRoute = ApiCheckoutServerRouteImport.update({
 const ApiShapesTodosServerRoute = ApiShapesTodosServerRouteImport.update({
   id: '/api/shapes/todos',
   path: '/api/shapes/todos',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiBillingPortalServerRoute = ApiBillingPortalServerRouteImport.update({
+  id: '/api/billing/portal',
+  path: '/api/billing/portal',
   getParentRoute: () => rootServerRouteImport,
 } as any)
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
@@ -139,12 +145,14 @@ export interface FileServerRoutesByFullPath {
   '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/billing/portal': typeof ApiBillingPortalServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesByTo {
   '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/billing/portal': typeof ApiBillingPortalServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesById {
@@ -152,6 +160,7 @@ export interface FileServerRoutesById {
   '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/billing/portal': typeof ApiBillingPortalServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRouteTypes {
@@ -160,14 +169,21 @@ export interface FileServerRouteTypes {
     | '/api/checkout'
     | '/api/inngest'
     | '/api/auth/$'
+    | '/api/billing/portal'
     | '/api/shapes/todos'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/checkout' | '/api/inngest' | '/api/auth/$' | '/api/shapes/todos'
+  to:
+    | '/api/checkout'
+    | '/api/inngest'
+    | '/api/auth/$'
+    | '/api/billing/portal'
+    | '/api/shapes/todos'
   id:
     | '__root__'
     | '/api/checkout'
     | '/api/inngest'
     | '/api/auth/$'
+    | '/api/billing/portal'
     | '/api/shapes/todos'
   fileServerRoutesById: FileServerRoutesById
 }
@@ -175,6 +191,7 @@ export interface RootServerRouteChildren {
   ApiCheckoutServerRoute: typeof ApiCheckoutServerRoute
   ApiInngestServerRoute: typeof ApiInngestServerRoute
   ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
+  ApiBillingPortalServerRoute: typeof ApiBillingPortalServerRoute
   ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute
 }
 
@@ -247,6 +264,13 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiShapesTodosServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
+    '/api/billing/portal': {
+      id: '/api/billing/portal'
+      path: '/api/billing/portal'
+      fullPath: '/api/billing/portal'
+      preLoaderRoute: typeof ApiBillingPortalServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -272,6 +296,7 @@ const rootServerRouteChildren: RootServerRouteChildren = {
   ApiCheckoutServerRoute: ApiCheckoutServerRoute,
   ApiInngestServerRoute: ApiInngestServerRoute,
   ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
+  ApiBillingPortalServerRoute: ApiBillingPortalServerRoute,
   ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
