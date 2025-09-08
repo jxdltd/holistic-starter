@@ -6,6 +6,9 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ["@polar-sh/better-auth", "@polar-sh/sdk"],
+  },
   server: {
     port: 3000,
   },
