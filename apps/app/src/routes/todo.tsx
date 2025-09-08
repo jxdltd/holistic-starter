@@ -3,7 +3,7 @@ import { AppSidebar } from "../components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
 import { getAuth } from "../auth";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/todo")({
   component: Home,
   loader: async () => {
     const auth = await getAuth();
