@@ -15,6 +15,11 @@ export function TextField({ label }: { label: string }) {
         value={field.state.value}
         onChange={(e) => field.handleChange(e.target.value)}
       />
+      {field.state.meta.errors && (
+        <p className="text-sm text-destructive">
+          {field.state.meta.errors.map((error) => error.message).join(", ")}
+        </p>
+      )}
     </div>
   );
 }

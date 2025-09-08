@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { auth } from "@repo/auth/client";
 import { useAppForm } from "@repo/forms";
 import z from "zod";
+import { Logo } from "../components/logo";
 
 export const Route = createFileRoute("/sign-in")({
   component: RouteComponent,
@@ -28,7 +29,8 @@ function RouteComponent() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-accent">
+    <div className="flex flex-col items-center justify-center h-screen bg-accent gap-5">
+      <Logo />
       <form
         className="flex flex-col items-center justify-center gap-4 bg-card p-4 rounded-md w-full max-w-md border shadow-xs"
         onSubmit={(e) => {
