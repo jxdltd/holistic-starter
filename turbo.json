@@ -3,7 +3,7 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": ["dist", ".vercel", ".nitro", ".output", ".tanstack"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
