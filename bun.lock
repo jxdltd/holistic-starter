@@ -50,7 +50,7 @@
     "packages/auth": {
       "name": "@repo/auth",
       "dependencies": {
-        "@polar-sh/better-auth": "^1.1.1",
+        "@polar-sh/better-auth": "^1.0.1",
         "@polar-sh/sdk": "^0.34.16",
         "@repo/billing": "workspace:*",
         "@repo/database": "workspace:*",
