@@ -32,8 +32,10 @@ function Home() {
     q
       .from({ todo: todosElectricCollection })
       .where(({ todo }) => eq(todo.completed, false))
-      .orderBy(({ todo }) => todo.createdAt, "desc")
+      .orderBy(({ todo }) => todo.created_at, "desc")
   );
+
+  console.log(todos);
 
   const [title, setTitle] = useState("");
 
@@ -41,9 +43,9 @@ function Home() {
     e.preventDefault();
     todosElectricCollection.insert({
       id: crypto.randomUUID(),
-      createdAt: new Date(),
+      created_at: new Date(),
       completed: false,
-      userId: user.id,
+      user_id: user.id,
       title,
     });
     setTitle("");
@@ -59,7 +61,7 @@ function Home() {
           {todos.map((todo) => (
             <div key={todo.id} className="flex items-center gap-2">
               <Checkbox />
-              {todo.title}
+              <span>{todo.title}</span>
             </div>
           ))}
         </div>

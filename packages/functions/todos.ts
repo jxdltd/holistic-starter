@@ -6,6 +6,7 @@ import { todo } from "@repo/database/schema";
 import { inngest } from "@repo/jobs/client";
 
 const createTodoSchema = z.object({
+  id: z.string().min(1).optional(),
   title: z.string().min(1),
 });
 
@@ -13,7 +14,8 @@ export const createTodo = createServerFn()
   .validator(createTodoSchema)
   .middleware([authenticatedMiddleware])
   .handler(async ({ context, data }) => {
-    const id = crypto.randomUUID();
+    const id = data.id ?? crypto.randomUUID();
+
     await db.insert(todo).values({
       id,
       title: data.title,
@@ -28,6 +30,8 @@ export const createTodo = createServerFn()
         },
       },
     });
+
+    return { id };
   });
 
 export const getTodos = createServerFn()

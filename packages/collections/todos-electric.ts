@@ -16,7 +16,11 @@ export const todosElectricCollection = createCollection(
 
       const { modified: newTodo } = transaction.mutations[0];
 
-      await createTodo({ data: { title: newTodo.title as string } });
+      const { id } = await createTodo({
+        data: { title: newTodo.title as string },
+      });
+
+      return { txid: id };
     },
   })
 );
