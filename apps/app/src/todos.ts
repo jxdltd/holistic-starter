@@ -12,6 +12,9 @@ export const createTodo = createServerFn()
   .validator(createTodoSchema)
   .middleware([authenticatedMiddleware])
   .handler(async ({ context, data }) => {
+    // Simulated delay
+    await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 seconds
+
     await db.insert(todo).values({
       id: crypto.randomUUID(),
       title: data.title,

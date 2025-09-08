@@ -35,7 +35,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link to="/todo">Todo</Link>
+                  <Link to="/examples/basic">Basic</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>

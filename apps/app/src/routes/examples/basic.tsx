@@ -1,13 +1,13 @@
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
-import { AppSidebar } from "../components/sidebar";
+import { AppSidebar } from "../../components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
-import { getAuth } from "../auth";
-import { createTodo, getTodos } from "../todos";
+import { getAuth } from "../../auth";
+import { createTodo, getTodos } from "../../todos";
 import { useState } from "react";
 import { Input } from "@repo/ui/components/input";
 import { Button } from "@repo/ui/components/button";
 
-export const Route = createFileRoute("/todo")({
+export const Route = createFileRoute("/examples/basic")({
   component: Home,
   loader: async () => {
     const auth = await getAuth();
@@ -41,6 +41,8 @@ function Home() {
       <AppSidebar />
       <main>
         <SidebarTrigger />
+        <h1 className="text-2xl font-bold">Basic Todos</h1>
+        <p>A simple todo list built only with server functions.</p>
         <div>
           {todos.map((todo) => (
             <div key={todo.id}>{todo.title}</div>
