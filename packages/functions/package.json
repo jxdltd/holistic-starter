@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {},
 	"dependencies": {
+		"@repo/billing": "workspace:*",
 		"@repo/auth": "workspace:*",
 		"@repo/jobs": "workspace:*",
 		"@repo/database": "workspace:*",
