@@ -16,13 +16,14 @@
       "name": "app",
       "dependencies": {
         "@repo/auth": "workspace:*",
+        "@repo/collections": "workspace:*",
         "@repo/config": "workspace:*",
         "@repo/database": "workspace:*",
+        "@repo/functions": "workspace:*",
         "@repo/jobs": "workspace:*",
         "@repo/ui": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
         "@tailwindcss/vite": "^4.1.13",
-        "@tanstack/query-db-collection": "^0.2.11",
         "@tanstack/react-db": "^0.1.12",
         "@tanstack/react-query": "^5.87.1",
         "@tanstack/react-router": "^1.131.35",
@@ -55,9 +56,23 @@
         "typescript": "^5.9.2",
       },
     },
+    "packages/collections": {
+      "name": "@repo/collections",
+      "dependencies": {
+        "@t3-oss/env-core": "^0.13.8",
+        "@tanstack/query-core": "^5.87.1",
+        "@tanstack/query-db-collection": "^0.2.11",
+        "@tanstack/react-db": "^0.1.12",
+        "zod": "^4.1.5",
+      },
+      "devDependencies": {
+        "typescript": "^5.9.2",
+      },
+    },
     "packages/config": {
       "name": "@repo/config",
       "dependencies": {
+        "@repo/functions": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
         "zod": "^4.1.5",
       },
@@ -76,6 +91,17 @@
       "devDependencies": {
         "dotenv": "^17.2.1",
         "drizzle-kit": "^0.31.4",
+        "typescript": "^5.9.2",
+      },
+    },
+    "packages/functions": {
+      "name": "@repo/functions",
+      "dependencies": {
+        "@t3-oss/env-core": "^0.13.8",
+        "@tanstack/react-start": "^1.131.35",
+        "zod": "^4.1.5",
+      },
+      "devDependencies": {
         "typescript": "^5.9.2",
       },
     },
@@ -757,9 +783,13 @@
 
     "@repo/auth": ["@repo/auth@workspace:packages/auth"],
 
+    "@repo/collections": ["@repo/collections@workspace:packages/collections"],
+
     "@repo/config": ["@repo/config@workspace:packages/config"],
 
     "@repo/database": ["@repo/database@workspace:packages/database"],
+
+    "@repo/functions": ["@repo/functions@workspace:packages/functions"],
 
     "@repo/jobs": ["@repo/jobs@workspace:packages/jobs"],
 

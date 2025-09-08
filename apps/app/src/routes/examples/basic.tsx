@@ -1,12 +1,12 @@
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { AppSidebar } from "../../components/sidebar";
-import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
+import { SidebarProvider } from "@repo/ui/components/sidebar";
 import { getAuth } from "../../auth";
-import { createTodo, getTodos } from "../../todos";
 import { useState } from "react";
 import { Input } from "@repo/ui/components/input";
 import { Button } from "@repo/ui/components/button";
 import { Checkbox } from "@repo/ui/components/checkbox";
+import { getTodos, createTodo } from "@repo/functions/todos";
 
 export const Route = createFileRoute("/examples/basic")({
   component: Home,

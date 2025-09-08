@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
-import { authenticatedMiddleware } from "./auth";
+import { authenticatedMiddleware } from "../../apps/app/src/auth";
 import { db, eq } from "@repo/database";
 import { todo } from "@repo/database/schema";
 import { inngest } from "@repo/jobs/client";

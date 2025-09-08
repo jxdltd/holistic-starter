@@ -1,14 +1,13 @@
-import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { AppSidebar } from "../../components/sidebar";
-import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
+import { SidebarProvider } from "@repo/ui/components/sidebar";
 import { getAuth } from "../../auth";
-import { createTodo, getTodos } from "../../todos";
 import { useState } from "react";
 import { Input } from "@repo/ui/components/input";
 import { Button } from "@repo/ui/components/button";
 import { Checkbox } from "@repo/ui/components/checkbox";
 import { eq, useLiveQuery } from "@tanstack/react-db";
-import { todoCollection } from "../../collections/todos";
+import { todoCollection } from "@repo/collections/todos";
 
 export const Route = createFileRoute("/examples/sync-db")({
   component: Home,

@@ -1,11 +1,13 @@
 {
-	"name": "@repo/config",
+	"name": "@repo/collections",
 	"private": true,
 	"type": "module",
 	"scripts": {},
 	"dependencies": {
-		"@repo/functions": "workspace:*",
 		"@t3-oss/env-core": "^0.13.8",
+		"@tanstack/query-core": "^5.87.1",
+		"@tanstack/query-db-collection": "^0.2.11",
+		"@tanstack/react-db": "^0.1.12",
 		"zod": "^4.1.5"
 	},
 	"devDependencies": {

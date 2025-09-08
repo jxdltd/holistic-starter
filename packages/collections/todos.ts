@@ -1,7 +1,9 @@
-import { createCollection, eq, useLiveQuery } from "@tanstack/react-db";
+import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
-import { createTodo, getTodos } from "../todos";
-import { queryClient } from "../utils/query-client";
+import { createTodo, getTodos } from "@repo/functions/todos";
+import { QueryClient } from "@tanstack/query-core";
+
+const queryClient = new QueryClient();
 
 export const todoCollection = createCollection(
   queryCollectionOptions({

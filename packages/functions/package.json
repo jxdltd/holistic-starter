@@ -1,12 +1,12 @@
 {
-	"name": "@repo/config",
+	"name": "@repo/functions",
 	"private": true,
 	"type": "module",
 	"scripts": {},
 	"dependencies": {
-		"@repo/functions": "workspace:*",
 		"@t3-oss/env-core": "^0.13.8",
-		"zod": "^4.1.5"
+		"zod": "^4.1.5",
+		"@tanstack/react-start": "^1.131.35"
 	},
 	"devDependencies": {
 		"typescript": "^5.9.2"
