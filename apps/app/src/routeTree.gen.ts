@@ -14,6 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExamplesSyncDbRouteImport } from './routes/examples/sync-db'
+import { Route as ExamplesBillingRouteImport } from './routes/examples/billing'
 import { Route as ExamplesBasicRouteImport } from './routes/examples/basic'
 import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
@@ -33,6 +34,11 @@ const IndexRoute = IndexRouteImport.update({
 const ExamplesSyncDbRoute = ExamplesSyncDbRouteImport.update({
   id: '/examples/sync-db',
   path: '/examples/sync-db',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplesBillingRoute = ExamplesBillingRouteImport.update({
+  id: '/examples/billing',
+  path: '/examples/billing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamplesBasicRoute = ExamplesBasicRouteImport.update({
@@ -55,12 +61,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sign-in': typeof SignInRoute
   '/examples/basic': typeof ExamplesBasicRoute
+  '/examples/billing': typeof ExamplesBillingRoute
   '/examples/sync-db': typeof ExamplesSyncDbRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sign-in': typeof SignInRoute
   '/examples/basic': typeof ExamplesBasicRoute
+  '/examples/billing': typeof ExamplesBillingRoute
   '/examples/sync-db': typeof ExamplesSyncDbRoute
 }
 export interface FileRoutesById {
@@ -68,20 +76,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/sign-in': typeof SignInRoute
   '/examples/basic': typeof ExamplesBasicRoute
+  '/examples/billing': typeof ExamplesBillingRoute
   '/examples/sync-db': typeof ExamplesSyncDbRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sign-in' | '/examples/basic' | '/examples/sync-db'
+  fullPaths:
+    | '/'
+    | '/sign-in'
+    | '/examples/basic'
+    | '/examples/billing'
+    | '/examples/sync-db'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sign-in' | '/examples/basic' | '/examples/sync-db'
-  id: '__root__' | '/' | '/sign-in' | '/examples/basic' | '/examples/sync-db'
+  to:
+    | '/'
+    | '/sign-in'
+    | '/examples/basic'
+    | '/examples/billing'
+    | '/examples/sync-db'
+  id:
+    | '__root__'
+    | '/'
+    | '/sign-in'
+    | '/examples/basic'
+    | '/examples/billing'
+    | '/examples/sync-db'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SignInRoute: typeof SignInRoute
   ExamplesBasicRoute: typeof ExamplesBasicRoute
+  ExamplesBillingRoute: typeof ExamplesBillingRoute
   ExamplesSyncDbRoute: typeof ExamplesSyncDbRoute
 }
 export interface FileServerRoutesByFullPath {
@@ -133,6 +159,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExamplesSyncDbRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/examples/billing': {
+      id: '/examples/billing'
+      path: '/examples/billing'
+      fullPath: '/examples/billing'
+      preLoaderRoute: typeof ExamplesBillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/examples/basic': {
       id: '/examples/basic'
       path: '/examples/basic'
@@ -165,6 +198,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SignInRoute: SignInRoute,
   ExamplesBasicRoute: ExamplesBasicRoute,
+  ExamplesBillingRoute: ExamplesBillingRoute,
   ExamplesSyncDbRoute: ExamplesSyncDbRoute,
 }
 export const routeTree = rootRouteImport

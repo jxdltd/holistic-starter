@@ -1,3 +1,4 @@
+import { auth } from "@repo/auth/client";
 import {
   Sidebar,
   SidebarHeader,
@@ -46,11 +47,29 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>Sync (Electric)</SidebarMenuButton>
               </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link to="/examples/billing">Billing</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton onClick={() => auth.customer.portal()}>
+              Billing
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton onClick={() => auth.signOut()}>
+              Sign Out
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }

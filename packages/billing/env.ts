@@ -4,7 +4,7 @@ import { z } from "zod";
 export const env = () =>
   createEnv({
     server: {
-      POLAR_ACCESS_TOKEN: z.url(),
+      POLAR_ACCESS_TOKEN: z.string(),
     },
     runtimeEnv: {
       POLAR_ACCESS_TOKEN: process.env.POLAR_ACCESS_TOKEN,
