@@ -9,6 +9,8 @@ import { VerifyEmail } from "@repo/mail/emails/magic-link";
 import { portal, checkout, polar as polarPlugin } from "@polar-sh/better-auth";
 import { polar } from "@repo/billing";
 
+import "@polar-sh/sdk/webhooks";
+
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
