@@ -44,7 +44,7 @@ function RouteComponent() {
 
 	return (
 		<SidebarProvider>
-			<AppSidebar />
+			<AppSidebar activeOrgId={org.id} />
 			<main className="w-full p-4">
 				<div>{org.name}</div>
 			</main>

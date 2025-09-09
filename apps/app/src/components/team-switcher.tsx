@@ -16,20 +16,30 @@ import {
 } from "@repo/ui/components/sidebar";
 import {
 	IconBuilding,
+	IconHome,
 	IconPlus,
 	IconSelector,
 	IconUser,
 } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 
-export function TeamSwitcher() {
+type Props = {
+	activeOrgId: string | null;
+};
+
+export function TeamSwitcher({ activeOrgId }: Props) {
 	const { isMobile } = useSidebar();
 	const organisations = auth.useListOrganizations();
-	const activeOrganisation = auth.useActiveOrganization();
 
-	if (organisations.isPending || activeOrganisation.isPending) {
+	if (organisations.isPending) {
 		return null;
 	}
+
+	const activeOrg = organisations.data?.find(
+		(org) => org.id === activeOrgId,
+	) ?? {
+		name: "Home",
+	};
 
 	return (
 		<SidebarMenu>
@@ -46,7 +56,7 @@ export function TeamSwitcher() {
 							</div>
 							<div className="grid flex-1 text-left text-sm leading-tight">
 								<span className="truncate font-medium">
-									{activeOrganisation.data?.name ?? "Personal"}
+									{activeOrg.name ?? "Home"}
 								</span>
 							</div>
 							<IconSelector className="ml-auto" />
@@ -58,6 +68,15 @@ export function TeamSwitcher() {
 						side={isMobile ? "bottom" : "right"}
 						sideOffset={4}
 					>
+						<DropdownMenuItem className="gap-2 p-2" asChild>
+							<Link to="/">
+								<div className="flex size-6 items-center justify-center rounded-md border">
+									<IconHome className="size-3.5 shrink-0" />
+									{/* <team.logo className="size-3.5 shrink-0" /> */}
+								</div>
+								Home
+							</Link>
+						</DropdownMenuItem>
 						<DropdownMenuLabel className="text-muted-foreground text-xs">
 							Teams
 						</DropdownMenuLabel>

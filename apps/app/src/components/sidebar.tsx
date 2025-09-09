@@ -17,11 +17,15 @@ import { Link } from "@tanstack/react-router";
 import { BugReport } from "./bug-report";
 import { TeamSwitcher } from "./team-switcher";
 
-export function AppSidebar() {
+type Props = {
+	activeOrgId?: string | null;
+};
+
+export function AppSidebar({ activeOrgId }: Props) {
 	return (
 		<Sidebar>
 			<SidebarHeader>
-				<TeamSwitcher />
+				<TeamSwitcher activeOrgId={activeOrgId ?? null} />
 			</SidebarHeader>
 			<SidebarContent>
 				<SidebarGroup>
