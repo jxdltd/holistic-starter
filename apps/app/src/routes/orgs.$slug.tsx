@@ -1,5 +1,6 @@
 import { auth } from "@repo/auth/server";
 import { authenticatedMiddleware } from "@repo/functions/auth";
+import { Badge } from "@repo/ui/components/badge";
 import {
 	Card,
 	CardContent,
@@ -8,11 +9,11 @@ import {
 	CardTitle,
 } from "@repo/ui/components/card";
 import { SidebarProvider } from "@repo/ui/components/sidebar";
-import { createFileRoute, notFound, Outlet } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getWebRequest } from "@tanstack/react-start/server";
-import {Badge} from '@repo/ui/components/badge'
 import z from "zod";
+import { OrgSettings } from "../components/orgs/settings";
 import { AppSidebar } from "../components/sidebar";
 
 const getOrgSchema = z.object({
@@ -55,13 +56,7 @@ function RouteComponent() {
 			<AppSidebar activeOrgId={org.id} />
 			<main className="w-full p-4 space-y-4">
 				<h1 className="text-2xl font-bold">{org.name}</h1>
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Settings</CardTitle>
-                    </CardHeader>
-                    <CardContent>Todo</CardContent>
-                    <CardFooter>Todo</CardFooter>
-                </Card>
+				<OrgSettings orgId={org.id} defaultValues={{ name: org.name }} />
 				<Card>
 					<CardHeader>
 						<CardTitle>Members</CardTitle>
@@ -70,9 +65,9 @@ function RouteComponent() {
 						<div className="flex flex-col gap-2">
 							{org.members.map((member) => (
 								<div key={member.id} className="flex items-center gap-2">
-                                    <span>{member.user.email}</span>
-                                    <Badge className="capitalize">{member.role}</Badge>
-                                </div>
+									<span>{member.user.email}</span>
+									<Badge className="capitalize">{member.role}</Badge>
+								</div>
 							))}
 						</div>
 						<div className="flex flex-col gap-2">

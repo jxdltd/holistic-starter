@@ -9,7 +9,7 @@ export function SubmitButton({ children }: { children: ReactNode }) {
 		<form.Subscribe selector={(state) => state.isSubmitting}>
 			{(isSubmitting) => (
 				<Button className="w-full" type="submit" disabled={isSubmitting}>
-					{children}
+					{isSubmitting ? "..." : children}
 				</Button>
 			)}
 		</form.Subscribe>
