@@ -1,0 +1,15 @@
+{
+  "name": "@repo/ai",
+  "private": true,
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@ai-sdk/openai": "^2.0.27",
+    "@t3-oss/env-core": "^0.13.8",
+    "ai": "^5.0.38",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
