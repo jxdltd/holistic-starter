@@ -25,3 +25,4 @@
 - [`@repo/mail`](packages/mail/readme.md) - Email.
 - [`@repo/theme`](packages/theme/readme.md) - Theme.
 - [`@repo/ui`](packages/ui/readme.md) - Design System.
+- [`@repo/utils`](packages/utils/readme.md) - Utils.

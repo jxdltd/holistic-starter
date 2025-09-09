@@ -30,6 +30,7 @@
         "@repo/jobs": "workspace:*",
         "@repo/theme": "workspace:*",
         "@repo/ui": "workspace:*",
+        "@repo/utils": "workspace:*",
         "@sentry/tanstackstart-react": "^10.10.0",
         "@t3-oss/env-core": "^0.13.8",
         "@tabler/icons-react": "^3.34.1",
@@ -68,6 +69,7 @@
     "packages/auth": {
       "name": "@repo/auth",
       "dependencies": {
+        "@repo/config": "workspace:*",
         "@repo/database": "workspace:*",
         "@repo/mail": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
@@ -241,6 +243,16 @@
         "tailwindcss": "^4.1.13",
         "tw-animate-css": "^1.3.8",
         "use-stick-to-bottom": "^1.1.1",
+      },
+    },
+    "packages/utils": {
+      "name": "@repo/utils",
+      "dependencies": {
+        "@t3-oss/env-core": "^0.13.8",
+        "zod": "^4.1.5",
+      },
+      "devDependencies": {
+        "typescript": "^5.9.2",
       },
     },
   },
@@ -945,6 +957,8 @@
     "@repo/theme": ["@repo/theme@workspace:packages/theme"],
 
     "@repo/ui": ["@repo/ui@workspace:packages/ui"],
+
+    "@repo/utils": ["@repo/utils@workspace:packages/utils"],
 
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-beta.34", "", {}, "sha512-LyAREkZHP5pMom7c24meKmJCdhf2hEyvam2q0unr3or9ydwDL+DJ8chTF6Av/RFPb3rH8UFBdMzO5MxTZW97oA=="],
 
