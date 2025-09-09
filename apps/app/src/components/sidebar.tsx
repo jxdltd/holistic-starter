@@ -15,13 +15,13 @@ import {
 import { IconCreditCard, IconHome, IconLogout } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 import { BugReport } from "./bug-report";
-import { Logo } from "./logo";
+import { TeamSwitcher } from "./team-switcher";
 
 export function AppSidebar() {
 	return (
 		<Sidebar>
 			<SidebarHeader>
-				<Logo />
+				<TeamSwitcher teams={[]} />
 			</SidebarHeader>
 			<SidebarContent>
 				<SidebarGroup>

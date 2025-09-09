@@ -16,7 +16,7 @@ export function TextField({ label }: { label: string }) {
 				onChange={(e) => field.handleChange(e.target.value)}
 			/>
 			{field.state.meta.errors && (
-				<p className="text-sm text-destructive">
+				<p className="text-sm text-destructive font-medium">
 					{field.state.meta.errors.map((error) => error.message).join(", ")}
 				</p>
 			)}
