@@ -3,6 +3,7 @@
 	"private": true,
 	"type": "module",
 	"dependencies": {
+		"@repo/config": "workspace:*",
 		"@repo/database": "workspace:*",
 		"@repo/mail": "workspace:*",
 		"@t3-oss/env-core": "^0.13.8",

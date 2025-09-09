@@ -17,6 +17,7 @@ import { Route as SidebarRouteImport } from './routes/_sidebar'
 import { Route as SidebarIndexRouteImport } from './routes/_sidebar/index'
 import { Route as OrgsSlugRouteImport } from './routes/orgs.$slug'
 import { Route as SpotlightOrgsNewRouteImport } from './routes/_spotlight/orgs.new'
+import { Route as SpotlightInviteIdRouteImport } from './routes/_spotlight/invite.$id'
 import { Route as SidebarExamplesSyncElectricRouteImport } from './routes/_sidebar/examples/sync-electric'
 import { Route as SidebarExamplesSyncDbRouteImport } from './routes/_sidebar/examples/sync-db'
 import { Route as SidebarExamplesSubscribedRouteImport } from './routes/_sidebar/examples/subscribed'
@@ -58,6 +59,11 @@ const OrgsSlugRoute = OrgsSlugRouteImport.update({
 const SpotlightOrgsNewRoute = SpotlightOrgsNewRouteImport.update({
   id: '/orgs/new',
   path: '/orgs/new',
+  getParentRoute: () => SpotlightRoute,
+} as any)
+const SpotlightInviteIdRoute = SpotlightInviteIdRouteImport.update({
+  id: '/invite/$id',
+  path: '/invite/$id',
   getParentRoute: () => SpotlightRoute,
 } as any)
 const SidebarExamplesSyncElectricRoute =
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/examples/subscribed': typeof SidebarExamplesSubscribedRoute
   '/examples/sync-db': typeof SidebarExamplesSyncDbRoute
   '/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
+  '/invite/$id': typeof SpotlightInviteIdRoute
   '/orgs/new': typeof SpotlightOrgsNewRoute
 }
 export interface FileRoutesByTo {
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/examples/subscribed': typeof SidebarExamplesSubscribedRoute
   '/examples/sync-db': typeof SidebarExamplesSyncDbRoute
   '/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
+  '/invite/$id': typeof SpotlightInviteIdRoute
   '/orgs/new': typeof SpotlightOrgsNewRoute
 }
 export interface FileRoutesById {
@@ -161,6 +169,7 @@ export interface FileRoutesById {
   '/_sidebar/examples/subscribed': typeof SidebarExamplesSubscribedRoute
   '/_sidebar/examples/sync-db': typeof SidebarExamplesSyncDbRoute
   '/_sidebar/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
+  '/_spotlight/invite/$id': typeof SpotlightInviteIdRoute
   '/_spotlight/orgs/new': typeof SpotlightOrgsNewRoute
 }
 export interface FileRouteTypes {
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/examples/subscribed'
     | '/examples/sync-db'
     | '/examples/sync-electric'
+    | '/invite/$id'
     | '/orgs/new'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -187,6 +197,7 @@ export interface FileRouteTypes {
     | '/examples/subscribed'
     | '/examples/sync-db'
     | '/examples/sync-electric'
+    | '/invite/$id'
     | '/orgs/new'
   id:
     | '__root__'
@@ -201,6 +212,7 @@ export interface FileRouteTypes {
     | '/_sidebar/examples/subscribed'
     | '/_sidebar/examples/sync-db'
     | '/_sidebar/examples/sync-electric'
+    | '/_spotlight/invite/$id'
     | '/_spotlight/orgs/new'
   fileRoutesById: FileRoutesById
 }
@@ -313,6 +325,13 @@ declare module '@tanstack/react-router' {
       path: '/orgs/new'
       fullPath: '/orgs/new'
       preLoaderRoute: typeof SpotlightOrgsNewRouteImport
+      parentRoute: typeof SpotlightRoute
+    }
+    '/_spotlight/invite/$id': {
+      id: '/_spotlight/invite/$id'
+      path: '/invite/$id'
+      fullPath: '/invite/$id'
+      preLoaderRoute: typeof SpotlightInviteIdRouteImport
       parentRoute: typeof SpotlightRoute
     }
     '/_sidebar/examples/sync-electric': {
@@ -430,10 +449,12 @@ const SidebarRouteWithChildren =
   SidebarRoute._addFileChildren(SidebarRouteChildren)
 
 interface SpotlightRouteChildren {
+  SpotlightInviteIdRoute: typeof SpotlightInviteIdRoute
   SpotlightOrgsNewRoute: typeof SpotlightOrgsNewRoute
 }
 
 const SpotlightRouteChildren: SpotlightRouteChildren = {
+  SpotlightInviteIdRoute: SpotlightInviteIdRoute,
   SpotlightOrgsNewRoute: SpotlightOrgsNewRoute,
 }
 

@@ -1,4 +1,5 @@
 import { auth } from "@repo/auth/server";
+import { useAppForm } from "@repo/forms";
 import { authenticatedMiddleware } from "@repo/functions/auth";
 import { Badge } from "@repo/ui/components/badge";
 import {
@@ -13,6 +14,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getWebRequest } from "@tanstack/react-start/server";
 import z from "zod";
+import { InviteForm } from "../components/orgs/invite-form";
 import { OrgSettings } from "../components/orgs/settings";
 import { AppSidebar } from "../components/sidebar";
 
@@ -61,8 +63,8 @@ function RouteComponent() {
 					<CardHeader>
 						<CardTitle>Members</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="flex flex-col gap-2">
+					<CardContent className="space-y-3">
+						<div className="flex flex-col gap-3">
 							{org.members.map((member) => (
 								<div key={member.id} className="flex items-center gap-2">
 									<span>{member.user.email}</span>
@@ -70,17 +72,21 @@ function RouteComponent() {
 								</div>
 							))}
 						</div>
-						<div className="flex flex-col gap-2">
-							{org.invitations.map((invite) => (
-								<div key={invite.id} className="flex items-center gap-2">
-									<span>{invite.email}</span>
-									<Badge className="capitalize">{invite.role}</Badge>
-									<Badge>Pending</Badge>
-								</div>
-							))}
+						<div className="flex flex-col gap-3">
+							{org.invitations
+								.filter((invite) => invite.status === "pending")
+								.map((invite) => (
+									<div key={invite.id} className="flex items-center gap-2">
+										<span>{invite.email}</span>
+										<Badge className="capitalize">{invite.role}</Badge>
+										<Badge>Pending</Badge>
+									</div>
+								))}
 						</div>
 					</CardContent>
-					<CardFooter>Todo</CardFooter>
+					<CardFooter>
+						<InviteForm orgId={org.id} />
+					</CardFooter>
 				</Card>
 			</main>
 		</SidebarProvider>
