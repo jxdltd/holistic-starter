@@ -4,6 +4,9 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_sidebar/")({
 	component: Home,
+	head: () => ({
+		meta: [{ title: "Home" }],
+	}),
 	loader: async () => {
 		const auth = await getAuth();
 
