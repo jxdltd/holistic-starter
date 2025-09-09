@@ -1,0 +1,16 @@
+{
+  "name": "@repo/theme",
+  "private": true,
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@repo/ui": "workspace:*",
+    "@t3-oss/env-core": "^0.13.8",
+    "zod": "^4.1.5",
+    "@tanstack/react-start": "^1.131.35",
+    "react": "^19.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

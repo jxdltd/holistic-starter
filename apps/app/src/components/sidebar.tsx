@@ -1,4 +1,5 @@
 import { auth } from "@repo/auth/client";
+import { ThemeSwitcher } from "@repo/theme/react";
 import {
   Sidebar,
   SidebarContent,
@@ -94,6 +95,7 @@ export function AppSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
+        <ThemeSwitcher />
       </SidebarFooter>
     </Sidebar>
   );
