@@ -16,12 +16,13 @@ import { Route as SidebarRouteImport } from './routes/_sidebar'
 import { Route as SidebarIndexRouteImport } from './routes/_sidebar/index'
 import { Route as SidebarExamplesSyncElectricRouteImport } from './routes/_sidebar/examples/sync-electric'
 import { Route as SidebarExamplesSyncDbRouteImport } from './routes/_sidebar/examples/sync-db'
+import { Route as SidebarExamplesSubscribedRouteImport } from './routes/_sidebar/examples/subscribed'
 import { Route as SidebarExamplesBillingRouteImport } from './routes/_sidebar/examples/billing'
 import { Route as SidebarExamplesBasicRouteImport } from './routes/_sidebar/examples/basic'
 import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
-import { ServerRoute as ApiCheckoutServerRouteImport } from './routes/api/checkout'
 import { ServerRoute as ApiShapesTodosServerRouteImport } from './routes/api/shapes/todos'
 import { ServerRoute as ApiBillingPortalServerRouteImport } from './routes/api/billing/portal'
+import { ServerRoute as ApiBillingCheckoutServerRouteImport } from './routes/api/billing/checkout'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
 
 const rootServerRouteImport = createServerRootRoute()
@@ -51,6 +52,12 @@ const SidebarExamplesSyncDbRoute = SidebarExamplesSyncDbRouteImport.update({
   path: '/examples/sync-db',
   getParentRoute: () => SidebarRoute,
 } as any)
+const SidebarExamplesSubscribedRoute =
+  SidebarExamplesSubscribedRouteImport.update({
+    id: '/examples/subscribed',
+    path: '/examples/subscribed',
+    getParentRoute: () => SidebarRoute,
+  } as any)
 const SidebarExamplesBillingRoute = SidebarExamplesBillingRouteImport.update({
   id: '/examples/billing',
   path: '/examples/billing',
@@ -66,11 +73,6 @@ const ApiInngestServerRoute = ApiInngestServerRouteImport.update({
   path: '/api/inngest',
   getParentRoute: () => rootServerRouteImport,
 } as any)
-const ApiCheckoutServerRoute = ApiCheckoutServerRouteImport.update({
-  id: '/api/checkout',
-  path: '/api/checkout',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
 const ApiShapesTodosServerRoute = ApiShapesTodosServerRouteImport.update({
   id: '/api/shapes/todos',
   path: '/api/shapes/todos',
@@ -81,6 +83,12 @@ const ApiBillingPortalServerRoute = ApiBillingPortalServerRouteImport.update({
   path: '/api/billing/portal',
   getParentRoute: () => rootServerRouteImport,
 } as any)
+const ApiBillingCheckoutServerRoute =
+  ApiBillingCheckoutServerRouteImport.update({
+    id: '/api/billing/checkout',
+    path: '/api/billing/checkout',
+    getParentRoute: () => rootServerRouteImport,
+  } as any)
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -92,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/': typeof SidebarIndexRoute
   '/examples/basic': typeof SidebarExamplesBasicRoute
   '/examples/billing': typeof SidebarExamplesBillingRoute
+  '/examples/subscribed': typeof SidebarExamplesSubscribedRoute
   '/examples/sync-db': typeof SidebarExamplesSyncDbRoute
   '/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
 }
@@ -100,6 +109,7 @@ export interface FileRoutesByTo {
   '/': typeof SidebarIndexRoute
   '/examples/basic': typeof SidebarExamplesBasicRoute
   '/examples/billing': typeof SidebarExamplesBillingRoute
+  '/examples/subscribed': typeof SidebarExamplesSubscribedRoute
   '/examples/sync-db': typeof SidebarExamplesSyncDbRoute
   '/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
 }
@@ -110,6 +120,7 @@ export interface FileRoutesById {
   '/_sidebar/': typeof SidebarIndexRoute
   '/_sidebar/examples/basic': typeof SidebarExamplesBasicRoute
   '/_sidebar/examples/billing': typeof SidebarExamplesBillingRoute
+  '/_sidebar/examples/subscribed': typeof SidebarExamplesSubscribedRoute
   '/_sidebar/examples/sync-db': typeof SidebarExamplesSyncDbRoute
   '/_sidebar/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
 }
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/'
     | '/examples/basic'
     | '/examples/billing'
+    | '/examples/subscribed'
     | '/examples/sync-db'
     | '/examples/sync-electric'
   fileRoutesByTo: FileRoutesByTo
@@ -128,6 +140,7 @@ export interface FileRouteTypes {
     | '/'
     | '/examples/basic'
     | '/examples/billing'
+    | '/examples/subscribed'
     | '/examples/sync-db'
     | '/examples/sync-electric'
   id:
@@ -137,6 +150,7 @@ export interface FileRouteTypes {
     | '/_sidebar/'
     | '/_sidebar/examples/basic'
     | '/_sidebar/examples/billing'
+    | '/_sidebar/examples/subscribed'
     | '/_sidebar/examples/sync-db'
     | '/_sidebar/examples/sync-electric'
   fileRoutesById: FileRoutesById
@@ -146,55 +160,55 @@ export interface RootRouteChildren {
   SignInRoute: typeof SignInRoute
 }
 export interface FileServerRoutesByFullPath {
-  '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/billing/checkout': typeof ApiBillingCheckoutServerRoute
   '/api/billing/portal': typeof ApiBillingPortalServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesByTo {
-  '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/billing/checkout': typeof ApiBillingCheckoutServerRoute
   '/api/billing/portal': typeof ApiBillingPortalServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
-  '/api/checkout': typeof ApiCheckoutServerRoute
   '/api/inngest': typeof ApiInngestServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
+  '/api/billing/checkout': typeof ApiBillingCheckoutServerRoute
   '/api/billing/portal': typeof ApiBillingPortalServerRoute
   '/api/shapes/todos': typeof ApiShapesTodosServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
   fullPaths:
-    | '/api/checkout'
     | '/api/inngest'
     | '/api/auth/$'
+    | '/api/billing/checkout'
     | '/api/billing/portal'
     | '/api/shapes/todos'
   fileServerRoutesByTo: FileServerRoutesByTo
   to:
-    | '/api/checkout'
     | '/api/inngest'
     | '/api/auth/$'
+    | '/api/billing/checkout'
     | '/api/billing/portal'
     | '/api/shapes/todos'
   id:
     | '__root__'
-    | '/api/checkout'
     | '/api/inngest'
     | '/api/auth/$'
+    | '/api/billing/checkout'
     | '/api/billing/portal'
     | '/api/shapes/todos'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
-  ApiCheckoutServerRoute: typeof ApiCheckoutServerRoute
   ApiInngestServerRoute: typeof ApiInngestServerRoute
   ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
+  ApiBillingCheckoutServerRoute: typeof ApiBillingCheckoutServerRoute
   ApiBillingPortalServerRoute: typeof ApiBillingPortalServerRoute
   ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute
 }
@@ -236,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SidebarExamplesSyncDbRouteImport
       parentRoute: typeof SidebarRoute
     }
+    '/_sidebar/examples/subscribed': {
+      id: '/_sidebar/examples/subscribed'
+      path: '/examples/subscribed'
+      fullPath: '/examples/subscribed'
+      preLoaderRoute: typeof SidebarExamplesSubscribedRouteImport
+      parentRoute: typeof SidebarRoute
+    }
     '/_sidebar/examples/billing': {
       id: '/_sidebar/examples/billing'
       path: '/examples/billing'
@@ -261,13 +282,6 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiInngestServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
-    '/api/checkout': {
-      id: '/api/checkout'
-      path: '/api/checkout'
-      fullPath: '/api/checkout'
-      preLoaderRoute: typeof ApiCheckoutServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
     '/api/shapes/todos': {
       id: '/api/shapes/todos'
       path: '/api/shapes/todos'
@@ -280,6 +294,13 @@ declare module '@tanstack/react-start/server' {
       path: '/api/billing/portal'
       fullPath: '/api/billing/portal'
       preLoaderRoute: typeof ApiBillingPortalServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/billing/checkout': {
+      id: '/api/billing/checkout'
+      path: '/api/billing/checkout'
+      fullPath: '/api/billing/checkout'
+      preLoaderRoute: typeof ApiBillingCheckoutServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
     '/api/auth/$': {
@@ -296,6 +317,7 @@ interface SidebarRouteChildren {
   SidebarIndexRoute: typeof SidebarIndexRoute
   SidebarExamplesBasicRoute: typeof SidebarExamplesBasicRoute
   SidebarExamplesBillingRoute: typeof SidebarExamplesBillingRoute
+  SidebarExamplesSubscribedRoute: typeof SidebarExamplesSubscribedRoute
   SidebarExamplesSyncDbRoute: typeof SidebarExamplesSyncDbRoute
   SidebarExamplesSyncElectricRoute: typeof SidebarExamplesSyncElectricRoute
 }
@@ -304,6 +326,7 @@ const SidebarRouteChildren: SidebarRouteChildren = {
   SidebarIndexRoute: SidebarIndexRoute,
   SidebarExamplesBasicRoute: SidebarExamplesBasicRoute,
   SidebarExamplesBillingRoute: SidebarExamplesBillingRoute,
+  SidebarExamplesSubscribedRoute: SidebarExamplesSubscribedRoute,
   SidebarExamplesSyncDbRoute: SidebarExamplesSyncDbRoute,
   SidebarExamplesSyncElectricRoute: SidebarExamplesSyncElectricRoute,
 }
@@ -319,9 +342,9 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiCheckoutServerRoute: ApiCheckoutServerRoute,
   ApiInngestServerRoute: ApiInngestServerRoute,
   ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
+  ApiBillingCheckoutServerRoute: ApiBillingCheckoutServerRoute,
   ApiBillingPortalServerRoute: ApiBillingPortalServerRoute,
   ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
 }
