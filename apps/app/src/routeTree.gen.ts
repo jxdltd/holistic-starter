@@ -15,6 +15,7 @@ import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as SpotlightRouteImport } from './routes/_spotlight'
 import { Route as SidebarRouteImport } from './routes/_sidebar'
 import { Route as SidebarIndexRouteImport } from './routes/_sidebar/index'
+import { Route as OrgsSlugRouteImport } from './routes/orgs.$slug'
 import { Route as SpotlightOrgsNewRouteImport } from './routes/_spotlight/orgs.new'
 import { Route as SidebarExamplesSyncElectricRouteImport } from './routes/_sidebar/examples/sync-electric'
 import { Route as SidebarExamplesSyncDbRouteImport } from './routes/_sidebar/examples/sync-db'
@@ -48,6 +49,11 @@ const SidebarIndexRoute = SidebarIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => SidebarRoute,
+} as any)
+const OrgsSlugRoute = OrgsSlugRouteImport.update({
+  id: '/orgs/$slug',
+  path: '/orgs/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const SpotlightOrgsNewRoute = SpotlightOrgsNewRouteImport.update({
   id: '/orgs/new',
@@ -120,6 +126,7 @@ const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/sign-in': typeof SignInRoute
+  '/orgs/$slug': typeof OrgsSlugRoute
   '/': typeof SidebarIndexRoute
   '/examples/ai': typeof SidebarExamplesAiRoute
   '/examples/basic': typeof SidebarExamplesBasicRoute
@@ -131,6 +138,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/sign-in': typeof SignInRoute
+  '/orgs/$slug': typeof OrgsSlugRoute
   '/': typeof SidebarIndexRoute
   '/examples/ai': typeof SidebarExamplesAiRoute
   '/examples/basic': typeof SidebarExamplesBasicRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/_sidebar': typeof SidebarRouteWithChildren
   '/_spotlight': typeof SpotlightRouteWithChildren
   '/sign-in': typeof SignInRoute
+  '/orgs/$slug': typeof OrgsSlugRoute
   '/_sidebar/': typeof SidebarIndexRoute
   '/_sidebar/examples/ai': typeof SidebarExamplesAiRoute
   '/_sidebar/examples/basic': typeof SidebarExamplesBasicRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/sign-in'
+    | '/orgs/$slug'
     | '/'
     | '/examples/ai'
     | '/examples/basic'
@@ -169,6 +179,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/sign-in'
+    | '/orgs/$slug'
     | '/'
     | '/examples/ai'
     | '/examples/basic'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/_sidebar'
     | '/_spotlight'
     | '/sign-in'
+    | '/orgs/$slug'
     | '/_sidebar/'
     | '/_sidebar/examples/ai'
     | '/_sidebar/examples/basic'
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   SidebarRoute: typeof SidebarRouteWithChildren
   SpotlightRoute: typeof SpotlightRouteWithChildren
   SignInRoute: typeof SignInRoute
+  OrgsSlugRoute: typeof OrgsSlugRoute
 }
 export interface FileServerRoutesByFullPath {
   '/api/chat': typeof ApiChatServerRoute
@@ -287,6 +300,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof SidebarIndexRouteImport
       parentRoute: typeof SidebarRoute
+    }
+    '/orgs/$slug': {
+      id: '/orgs/$slug'
+      path: '/orgs/$slug'
+      fullPath: '/orgs/$slug'
+      preLoaderRoute: typeof OrgsSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_spotlight/orgs/new': {
       id: '/_spotlight/orgs/new'
@@ -425,6 +445,7 @@ const rootRouteChildren: RootRouteChildren = {
   SidebarRoute: SidebarRouteWithChildren,
   SpotlightRoute: SpotlightRouteWithChildren,
   SignInRoute: SignInRoute,
+  OrgsSlugRoute: OrgsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
