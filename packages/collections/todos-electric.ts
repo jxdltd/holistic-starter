@@ -1,6 +1,6 @@
-import { createCollection } from "@tanstack/react-db";
-import { electricCollectionOptions } from "@tanstack/electric-db-collection";
 import { createTodo } from "@repo/functions/todos";
+import { electricCollectionOptions } from "@tanstack/electric-db-collection";
+import { createCollection } from "@tanstack/react-db";
 
 export const todosElectricCollection = createCollection(
 	electricCollectionOptions({

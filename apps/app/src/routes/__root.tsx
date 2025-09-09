@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
-import { getThemeServerFn } from "@repo/theme/functions";
 import { ThemeProvider, useTheme } from "@repo/theme/context";
+import { getThemeServerFn } from "@repo/theme/functions";
 import { wrapCreateRootRouteWithSentry } from "@sentry/tanstackstart-react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import {

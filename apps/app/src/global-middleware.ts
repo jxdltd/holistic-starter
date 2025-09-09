@@ -1,9 +1,8 @@
+import * as Sentry from "@sentry/tanstackstart-react";
 import {
 	createMiddleware,
 	registerGlobalMiddleware,
 } from "@tanstack/react-start";
-
-import * as Sentry from "@sentry/tanstackstart-react";
 
 registerGlobalMiddleware({
 	middleware: [

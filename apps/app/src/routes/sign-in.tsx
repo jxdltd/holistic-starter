@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { auth } from "@repo/auth/client";
 import { useAppForm } from "@repo/forms";
+import { createFileRoute } from "@tanstack/react-router";
 import z from "zod";
 import { Logo } from "../components/logo";
 

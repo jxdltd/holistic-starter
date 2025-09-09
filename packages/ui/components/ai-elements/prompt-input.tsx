@@ -1,21 +1,5 @@
 "use client";
 
-import { Button } from "@/components/button";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from "@/components/dropdown-menu";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/select";
-import { Textarea } from "@/components/textarea";
-import { cn } from "@/utils";
 import type { ChatStatus, FileUIPart } from "ai";
 import {
 	ImageIcon,
@@ -46,6 +30,22 @@ import {
 	useRef,
 	useState,
 } from "react";
+import { Button } from "@/components/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/dropdown-menu";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/select";
+import { Textarea } from "@/components/textarea";
+import { cn } from "@/utils";
 
 type AttachmentsContext = {
 	files: (FileUIPart & { id: string })[];

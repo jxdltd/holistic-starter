@@ -11,21 +11,21 @@
 import { createServerRootRoute } from "@tanstack/react-start/server";
 
 import { Route as rootRouteImport } from "./routes/__root";
-import { Route as SignInRouteImport } from "./routes/sign-in";
 import { Route as SidebarRouteImport } from "./routes/_sidebar";
-import { Route as SidebarIndexRouteImport } from "./routes/_sidebar/index";
-import { Route as SidebarExamplesSyncElectricRouteImport } from "./routes/_sidebar/examples/sync-electric";
-import { Route as SidebarExamplesSyncDbRouteImport } from "./routes/_sidebar/examples/sync-db";
-import { Route as SidebarExamplesSubscribedRouteImport } from "./routes/_sidebar/examples/subscribed";
-import { Route as SidebarExamplesBillingRouteImport } from "./routes/_sidebar/examples/billing";
-import { Route as SidebarExamplesBasicRouteImport } from "./routes/_sidebar/examples/basic";
 import { Route as SidebarExamplesAiRouteImport } from "./routes/_sidebar/examples/ai";
-import { ServerRoute as ApiInngestServerRouteImport } from "./routes/api/inngest";
-import { ServerRoute as ApiChatServerRouteImport } from "./routes/api/chat";
-import { ServerRoute as ApiShapesTodosServerRouteImport } from "./routes/api/shapes/todos";
-import { ServerRoute as ApiBillingPortalServerRouteImport } from "./routes/api/billing/portal";
-import { ServerRoute as ApiBillingCheckoutServerRouteImport } from "./routes/api/billing/checkout";
+import { Route as SidebarExamplesBasicRouteImport } from "./routes/_sidebar/examples/basic";
+import { Route as SidebarExamplesBillingRouteImport } from "./routes/_sidebar/examples/billing";
+import { Route as SidebarExamplesSubscribedRouteImport } from "./routes/_sidebar/examples/subscribed";
+import { Route as SidebarExamplesSyncDbRouteImport } from "./routes/_sidebar/examples/sync-db";
+import { Route as SidebarExamplesSyncElectricRouteImport } from "./routes/_sidebar/examples/sync-electric";
+import { Route as SidebarIndexRouteImport } from "./routes/_sidebar/index";
 import { ServerRoute as ApiAuthSplatServerRouteImport } from "./routes/api/auth.$";
+import { ServerRoute as ApiBillingCheckoutServerRouteImport } from "./routes/api/billing/checkout";
+import { ServerRoute as ApiBillingPortalServerRouteImport } from "./routes/api/billing/portal";
+import { ServerRoute as ApiChatServerRouteImport } from "./routes/api/chat";
+import { ServerRoute as ApiInngestServerRouteImport } from "./routes/api/inngest";
+import { ServerRoute as ApiShapesTodosServerRouteImport } from "./routes/api/shapes/todos";
+import { Route as SignInRouteImport } from "./routes/sign-in";
 
 const rootServerRouteImport = createServerRootRoute();
 

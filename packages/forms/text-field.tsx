@@ -1,6 +1,6 @@
-import { useFieldContext } from "./context";
 import { Input } from "@repo/ui/components/input";
 import { Label } from "@repo/ui/components/label";
+import { useFieldContext } from "./context";
 
 export function TextField({ label }: { label: string }) {
 	const field = useFieldContext<string>();

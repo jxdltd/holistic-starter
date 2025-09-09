@@ -1,11 +1,12 @@
 // server.ts
+
+import * as Sentry from "@sentry/tanstackstart-react";
 import {
 	createStartHandler,
 	defaultStreamHandler,
 } from "@tanstack/react-start/server";
-import { createRouter } from "./router";
-import * as Sentry from "@sentry/tanstackstart-react";
 import { env } from "./env";
+import { createRouter } from "./router";
 
 Sentry.init({
 	dsn: env().VITE_SENTRY_DSN,

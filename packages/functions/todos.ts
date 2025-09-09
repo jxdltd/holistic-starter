@@ -1,8 +1,8 @@
-import { createServerFn } from "@tanstack/react-start";
-import z from "zod";
 import { db, eq } from "@repo/database";
 import { todo } from "@repo/database/schema";
 import { inngest } from "@repo/jobs/client";
+import { createServerFn } from "@tanstack/react-start";
+import z from "zod";
 import { authenticatedMiddleware } from "./auth";
 
 const createTodoSchema = z.object({
