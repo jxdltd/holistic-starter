@@ -7,10 +7,10 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@repo/ai": "workspace:*",
-    "@repo/billing": "workspace:*",
     "@polar-sh/sdk": "^0.34.16",
+    "@repo/ai": "workspace:*",
     "@repo/auth": "workspace:*",
+    "@repo/billing": "workspace:*",
     "@repo/collections": "workspace:*",
     "@repo/config": "workspace:*",
     "@repo/database": "workspace:*",
@@ -21,6 +21,7 @@
     "@repo/ui": "workspace:*",
     "@sentry/tanstackstart-react": "^10.10.0",
     "@t3-oss/env-core": "^0.13.8",
+    "@tabler/icons-react": "^3.34.1",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-db": "^0.1.12",
     "@tanstack/react-form": "^1.19.4",

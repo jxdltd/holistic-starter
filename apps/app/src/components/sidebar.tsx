@@ -11,13 +11,17 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@repo/ui/components/sidebar";
+import { IconCreditCard, IconHome, IconLogout } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 import { BugReport } from "./bug-report";
+import { Logo } from "./logo";
 
 export function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader />
+      <SidebarHeader>
+        <Logo />
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Pages</SidebarGroupLabel>
@@ -25,7 +29,10 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link to="/">Home</Link>
+                  <Link to="/">
+                    <IconHome />
+                    Home
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -73,12 +80,16 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="/api/billing/portal">Billing</a>
+              <a href="/api/billing/portal">
+                <IconCreditCard />
+                Billing
+              </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <BugReport />
           <SidebarMenuItem>
             <SidebarMenuButton onClick={() => auth.signOut()}>
+              <IconLogout />
               Sign Out
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -43,7 +43,7 @@ function RouteComponent() {
     <SidebarProvider>
       <AppSidebar />
       <main className="w-full">
-        <SidebarTrigger />
+        {/* <SidebarTrigger /> */}
         <Outlet />
       </main>
     </SidebarProvider>
