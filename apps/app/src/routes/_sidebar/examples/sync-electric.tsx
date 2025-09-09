@@ -33,8 +33,6 @@ function Home() {
 			.orderBy(({ todo }) => todo.created_at, "desc"),
 	);
 
-	console.log(todos);
-
 	const [title, setTitle] = useState("");
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

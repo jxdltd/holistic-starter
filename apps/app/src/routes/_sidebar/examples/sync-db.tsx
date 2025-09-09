@@ -25,6 +25,7 @@ export const Route = createFileRoute("/_sidebar/examples/sync-db")({
 
 function Home() {
 	const { user } = Route.useLoaderData();
+	const [title, setTitle] = useState("");
 
 	const { data: todos } = useLiveQuery((q) =>
 		q
@@ -32,8 +33,6 @@ function Home() {
 			.where(({ todo }) => eq(todo.completed, false))
 			.orderBy(({ todo }) => todo.createdAt, "desc"),
 	);
-
-	const [title, setTitle] = useState("");
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

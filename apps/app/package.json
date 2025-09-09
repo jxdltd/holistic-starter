@@ -7,7 +7,6 @@
 		"build": "vite build"
 	},
 	"dependencies": {
-		"@repo/theme": "workspace:*",
 		"@polar-sh/sdk": "^0.34.16",
 		"@repo/ai": "workspace:*",
 		"@repo/auth": "workspace:*",
@@ -19,6 +18,7 @@
 		"@repo/forms": "workspace:*",
 		"@repo/functions": "workspace:*",
 		"@repo/jobs": "workspace:*",
+		"@repo/theme": "workspace:*",
 		"@repo/ui": "workspace:*",
 		"@sentry/tanstackstart-react": "^10.10.0",
 		"@t3-oss/env-core": "^0.13.8",

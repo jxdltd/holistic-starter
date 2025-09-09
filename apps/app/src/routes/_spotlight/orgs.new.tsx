@@ -1,4 +1,6 @@
+import { auth } from "@repo/auth/client";
 import { useAppForm } from "@repo/forms";
+import { getAuth } from "@repo/functions/auth";
 import {
 	Card,
 	CardContent,
@@ -7,8 +9,15 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@repo/ui/components/card";
-import { createFileRoute } from "@tanstack/react-router";
+import { formOptions } from "@tanstack/react-form";
+import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { z } from "zod";
+
+const formOpts = formOptions({
+	defaultValues: {
+		name: "",
+	},
+});
 
 const formSchema = z.object({
 	name: z.string().min(1),
@@ -16,18 +25,32 @@ const formSchema = z.object({
 
 export const Route = createFileRoute("/_spotlight/orgs/new")({
 	component: RouteComponent,
+	loader: async () => {
+		const session = await getAuth();
+		if (!session) {
+			throw redirect({ to: "/sign-in" });
+		}
+		return { ...session };
+	},
 });
 
 function RouteComponent() {
+	const { user } = Route.useLoaderData();
+	const router = useRouter();
+
 	const form = useAppForm({
-		defaultValues: {
-			name: "",
-		},
+		...formOpts,
 		validators: {
 			onSubmit: formSchema,
 		},
 		onSubmit: ({ value }) => {
-			console.log(value);
+			auth.organization.create({
+				name: value.name,
+				slug: value.name.toLowerCase().replace(/ /g, "-"),
+				userId: user.id,
+			}).then(() => {
+			router.navigate({ to: "/" });
+			});
 		},
 	});
 
@@ -40,11 +63,12 @@ function RouteComponent() {
 				</CardDescription>
 			</CardHeader>
 			<form
-				className="space-y-4"
 				onSubmit={(e) => {
 					e.preventDefault();
 					form.handleSubmit();
 				}}
+				method="POST"
+				className="space-y-4"
 			>
 				<CardContent>
 					<form.AppField
