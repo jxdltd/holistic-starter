@@ -1,6 +1,5 @@
-import { polar } from "@repo/billing";
 import { products } from "@repo/billing/products";
-import { authenticatedMiddleware, getAuth } from "@repo/functions/auth";
+import { getAuth } from "@repo/functions/auth";
 import { getSubscriptions } from "@repo/functions/billing";
 import { Button } from "@repo/ui/components/button";
 import { createFileRoute, redirect } from "@tanstack/react-router";

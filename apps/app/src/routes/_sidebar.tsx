@@ -1,5 +1,5 @@
 import { getAuth } from "@repo/functions/auth";
-import { SidebarProvider, SidebarTrigger } from "@repo/ui/components/sidebar";
+import { SidebarProvider } from "@repo/ui/components/sidebar";
 import * as Sentry from "@sentry/tanstackstart-react";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { useEffect } from "react";

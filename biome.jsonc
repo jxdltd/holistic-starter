@@ -15,7 +15,13 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"suspicious": {
+				"noUnknownAtRules": "off" // Until the Tailwind directives feature drops
+			},
+			"correctness": {
+				"noChildrenProp": "off" // TanStack Form
+			}
 		}
 	},
 	"javascript": {

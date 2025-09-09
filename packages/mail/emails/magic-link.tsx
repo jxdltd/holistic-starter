@@ -1,20 +1,10 @@
-import {
-	Button,
-	Container,
-	Head,
-	Html,
-	Img,
-	Text,
-} from "@react-email/components";
+import { Button, Container, Head, Html, Text } from "@react-email/components";
 
 type Props = {
-	to: {
-		email: string;
-	};
 	callbackUrl: string;
 };
 
-export function VerifyEmail({ to, callbackUrl }: Props) {
+export function VerifyEmail({ callbackUrl }: Props) {
 	return (
 		<Html>
 			<Head>
@@ -57,9 +47,6 @@ export function VerifyEmail({ to, callbackUrl }: Props) {
 
 export default function Example() {
 	return (
-		<VerifyEmail
-			to={{ email: "test@test.com" }}
-			callbackUrl="https://www.buildhype.dev/api/verify?code=123456&id=123456"
-		/>
+		<VerifyEmail callbackUrl="https://www.buildhype.dev/api/verify?code=123456&id=123456" />
 	);
 }

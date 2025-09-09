@@ -1,38 +1,31 @@
 import { useChat } from "@ai-sdk/react";
-import { generateJoke } from "@repo/ai";
-import { createFileRoute } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import {
+	Conversation,
+	ConversationContent,
+	ConversationScrollButton,
+} from "@repo/ui/components/ai-elements/conversation";
 import {
 	Message,
 	MessageContent,
 } from "@repo/ui/components/ai-elements/message";
-import { Response } from "@repo/ui/components/ai-elements/response";
 import {
 	PromptInput,
-	PromptInputActionAddAttachments,
-	PromptInputActionMenu,
-	PromptInputActionMenuContent,
-	PromptInputActionMenuTrigger,
 	PromptInputAttachment,
 	PromptInputAttachments,
 	PromptInputBody,
-	PromptInputButton,
 	type PromptInputMessage,
 	PromptInputSubmit,
 	PromptInputTextarea,
 	PromptInputToolbar,
 	PromptInputTools,
 } from "@repo/ui/components/ai-elements/prompt-input";
-import {
-	Conversation,
-	ConversationContent,
-	ConversationScrollButton,
-} from "@repo/ui/components/ai-elements/conversation";
+import { Response } from "@repo/ui/components/ai-elements/response";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
-const generateJokeFn = createServerFn().handler(async () => {
-	return await generateJoke();
-});
+// const generateJokeFn = createServerFn().handler(async () => {
+// 	return await generateJoke();
+// });
 
 export const Route = createFileRoute("/_sidebar/examples/ai")({
 	component: RouteComponent,
