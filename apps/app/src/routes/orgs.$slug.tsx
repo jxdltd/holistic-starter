@@ -1,9 +1,17 @@
 import { auth } from "@repo/auth/server";
 import { authenticatedMiddleware } from "@repo/functions/auth";
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@repo/ui/components/card";
 import { SidebarProvider } from "@repo/ui/components/sidebar";
 import { createFileRoute, notFound, Outlet } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { getWebRequest } from "@tanstack/react-start/server";
+import {Badge} from '@repo/ui/components/badge'
 import z from "zod";
 import { AppSidebar } from "../components/sidebar";
 
@@ -46,7 +54,32 @@ function RouteComponent() {
 		<SidebarProvider>
 			<AppSidebar activeOrgId={org.id} />
 			<main className="w-full p-4">
-				<div>{org.name}</div>
+				<h1 className="text-2xl font-bold">{org.name}</h1>
+				<Card>
+					<CardHeader>
+						<CardTitle>Members</CardTitle>
+					</CardHeader>
+					<CardContent>
+						<div className="flex flex-col gap-2">
+							{org.members.map((member) => (
+								<div key={member.id} className="flex items-center gap-2">
+                                    <span>{member.user.email}</span>
+                                    <Badge className="capitalize">{member.role}</Badge>
+                                </div>
+							))}
+						</div>
+						<div className="flex flex-col gap-2">
+							{org.invitations.map((invite) => (
+								<div key={invite.id} className="flex items-center gap-2">
+									<span>{invite.email}</span>
+									<Badge className="capitalize">{invite.role}</Badge>
+									<Badge>Pending</Badge>
+								</div>
+							))}
+						</div>
+					</CardContent>
+					<CardFooter>Todo</CardFooter>
+				</Card>
 			</main>
 		</SidebarProvider>
 	);
