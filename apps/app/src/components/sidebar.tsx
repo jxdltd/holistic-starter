@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
 } from "@repo/ui/components/sidebar";
 import { Link } from "@tanstack/react-router";
+import { BugReport } from "./bug-report";
 
 export function AppSidebar() {
   return (
@@ -70,6 +71,7 @@ export function AppSidebar() {
               <a href="/api/billing/portal">Billing</a>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <BugReport />
           <SidebarMenuItem>
             <SidebarMenuButton onClick={() => auth.signOut()}>
               Sign Out
