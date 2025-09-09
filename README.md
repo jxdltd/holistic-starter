@@ -13,6 +13,9 @@
 ## Packages
 
 - [`@repo/ai`](packages/ai/readme.md) - AI.
+- [`@repo/auth`](packages/auth/readme.md) - Authentication.
+- [`@repo/billing`](packages/billing/readme.md) - Billing.
+- [`@repo/collections`](packages/collections/readme.md) - Collections.
 - [`@repo/config`](packages/config/readme.md) - Common Configuration.
 - [`@repo/database`](packages/database/readme.md) - Database.
 - [`@repo/ui`](packages/ui/readme.md) - Design System.
