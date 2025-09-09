@@ -15,7 +15,13 @@
 - [`@repo/ai`](packages/ai/readme.md) - AI.
 - [`@repo/auth`](packages/auth/readme.md) - Authentication.
 - [`@repo/billing`](packages/billing/readme.md) - Billing.
-- [`@repo/collections`](packages/collections/readme.md) - Collections.
+- [`@repo/collections`](packages/collections/readme.md) - TanStack DB Collections.
 - [`@repo/config`](packages/config/readme.md) - Common Configuration.
 - [`@repo/database`](packages/database/readme.md) - Database.
+- [`@repo/electric`](packages/electric/readme.md) - ElectricSQL.
+- [`@repo/forms`](packages/forms/readme.md) - TanStack Form.
+- [`@repo/functions`](packages/functions/readme.md) - Functions.
+- [`@repo/jobs`](packages/jobs/readme.md) - Background Jobs.
+- [`@repo/mail`](packages/mail/readme.md) - Email.
+- [`@repo/theme`](packages/theme/readme.md) - Theme.
 - [`@repo/ui`](packages/ui/readme.md) - Design System.

@@ -1,9 +1,4 @@
 # `@repo/ui`
 
-Design System.
-
-- [Documentation](https://ui.shadcn.com)
-
-## AI Elements
-
-TODO
+- [Shadcn UI](https://ui.shadcn.com/) - [Docs](https://ui.shadcn.com/docs)
+- [AI Elements](https://ai-sdk.dev/elements/overview)
