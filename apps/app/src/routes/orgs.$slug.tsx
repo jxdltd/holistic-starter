@@ -53,8 +53,15 @@ function RouteComponent() {
 	return (
 		<SidebarProvider>
 			<AppSidebar activeOrgId={org.id} />
-			<main className="w-full p-4">
+			<main className="w-full p-4 space-y-4">
 				<h1 className="text-2xl font-bold">{org.name}</h1>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Settings</CardTitle>
+                    </CardHeader>
+                    <CardContent>Todo</CardContent>
+                    <CardFooter>Todo</CardFooter>
+                </Card>
 				<Card>
 					<CardHeader>
 						<CardTitle>Members</CardTitle>
