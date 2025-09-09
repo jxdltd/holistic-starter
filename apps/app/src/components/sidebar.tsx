@@ -21,7 +21,7 @@ export function AppSidebar() {
 	return (
 		<Sidebar>
 			<SidebarHeader>
-				<TeamSwitcher teams={[]} />
+				<TeamSwitcher />
 			</SidebarHeader>
 			<SidebarContent>
 				<SidebarGroup>

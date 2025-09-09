@@ -1,3 +1,4 @@
+import { auth } from "@repo/auth/client";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -13,25 +14,22 @@ import {
 	SidebarMenuItem,
 	useSidebar,
 } from "@repo/ui/components/sidebar";
-import { IconPlus, IconSelector, IconUser } from "@tabler/icons-react";
+import {
+	IconBuilding,
+	IconPlus,
+	IconSelector,
+	IconUser,
+} from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
-import { type ElementType, useState } from "react";
 
-type Props = {
-	teams: {
-		name: string;
-		logo: ElementType;
-	}[];
-};
-
-export function TeamSwitcher({ teams }: Props) {
+export function TeamSwitcher() {
 	const { isMobile } = useSidebar();
-	const [activeTeam, setActiveTeam] = useState(
-		teams[0] ?? {
-			name: "Personal",
-			// logo: <IconUser />,
-		},
-	);
+	const organisations = auth.useListOrganizations();
+	const activeOrganisation = auth.useActiveOrganization();
+
+	if (organisations.isPending || activeOrganisation.isPending) {
+		return null;
+	}
 
 	return (
 		<SidebarMenu>
@@ -47,7 +45,9 @@ export function TeamSwitcher({ teams }: Props) {
 								{/* <activeTeam.logo className="size-4" /> */}
 							</div>
 							<div className="grid flex-1 text-left text-sm leading-tight">
-								<span className="truncate font-medium">{activeTeam.name}</span>
+								<span className="truncate font-medium">
+									{activeOrganisation.data?.name ?? "Personal"}
+								</span>
 							</div>
 							<IconSelector className="ml-auto" />
 						</SidebarMenuButton>
@@ -61,14 +61,11 @@ export function TeamSwitcher({ teams }: Props) {
 						<DropdownMenuLabel className="text-muted-foreground text-xs">
 							Teams
 						</DropdownMenuLabel>
-						{teams.map((team, index) => (
-							<DropdownMenuItem
-								key={team.name}
-								onClick={() => setActiveTeam(team)}
-								className="gap-2 p-2"
-							>
+						{organisations.data?.map((team, index) => (
+							<DropdownMenuItem key={team.name} className="gap-2 p-2">
 								<div className="flex size-6 items-center justify-center rounded-md border">
-									<team.logo className="size-3.5 shrink-0" />
+									<IconBuilding className="size-3.5 shrink-0" />
+									{/* <team.logo className="size-3.5 shrink-0" /> */}
 								</div>
 								{team.name}
 								<DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
