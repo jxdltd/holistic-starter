@@ -4,7 +4,7 @@ import { resend } from "@repo/mail";
 import { VerifyEmail } from "@repo/mail/emails/magic-link";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { magicLink } from "better-auth/plugins";
+import { magicLink, organization } from "better-auth/plugins";
 import { reactStartCookies } from "better-auth/react-start";
 
 export const auth = betterAuth({
@@ -17,6 +17,7 @@ export const auth = betterAuth({
 	}),
 	plugins: [
 		reactStartCookies(),
+		organization(),
 		magicLink({
 			sendMagicLink: async ({ email, url }) => {
 				await resend.emails.send({
