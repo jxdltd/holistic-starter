@@ -4,7 +4,7 @@ import { Button } from "@repo/ui/components/button";
 import { products } from "@repo/billing/products";
 import { getSubscriptions } from "@repo/functions/billing";
 
-export const Route = createFileRoute("/examples/billing")({
+export const Route = createFileRoute("/_sidebar/examples/billing")({
 	component: RouteComponent,
 	loader: async () => {
 		const session = await getAuth();
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/examples/billing")({
 
 		return {
 			subscriptions: await getSubscriptions(),
-		};
+		}
 	},
 });
 
@@ -32,5 +32,5 @@ function RouteComponent() {
 				<a href={`/api/checkout?products=${products.pro.id}`}>Checkout</a>
 			</Button>
 		</div>
-	);
+	)
 }
