@@ -8,388 +8,388 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createServerRootRoute } from '@tanstack/react-start/server'
+import { createServerRootRoute } from "@tanstack/react-start/server";
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignInRouteImport } from './routes/sign-in'
-import { Route as SidebarRouteImport } from './routes/_sidebar'
-import { Route as SidebarIndexRouteImport } from './routes/_sidebar/index'
-import { Route as SidebarExamplesSyncElectricRouteImport } from './routes/_sidebar/examples/sync-electric'
-import { Route as SidebarExamplesSyncDbRouteImport } from './routes/_sidebar/examples/sync-db'
-import { Route as SidebarExamplesSubscribedRouteImport } from './routes/_sidebar/examples/subscribed'
-import { Route as SidebarExamplesBillingRouteImport } from './routes/_sidebar/examples/billing'
-import { Route as SidebarExamplesBasicRouteImport } from './routes/_sidebar/examples/basic'
-import { Route as SidebarExamplesAiRouteImport } from './routes/_sidebar/examples/ai'
-import { ServerRoute as ApiInngestServerRouteImport } from './routes/api/inngest'
-import { ServerRoute as ApiChatServerRouteImport } from './routes/api/chat'
-import { ServerRoute as ApiShapesTodosServerRouteImport } from './routes/api/shapes/todos'
-import { ServerRoute as ApiBillingPortalServerRouteImport } from './routes/api/billing/portal'
-import { ServerRoute as ApiBillingCheckoutServerRouteImport } from './routes/api/billing/checkout'
-import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth.$'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as SignInRouteImport } from "./routes/sign-in";
+import { Route as SidebarRouteImport } from "./routes/_sidebar";
+import { Route as SidebarIndexRouteImport } from "./routes/_sidebar/index";
+import { Route as SidebarExamplesSyncElectricRouteImport } from "./routes/_sidebar/examples/sync-electric";
+import { Route as SidebarExamplesSyncDbRouteImport } from "./routes/_sidebar/examples/sync-db";
+import { Route as SidebarExamplesSubscribedRouteImport } from "./routes/_sidebar/examples/subscribed";
+import { Route as SidebarExamplesBillingRouteImport } from "./routes/_sidebar/examples/billing";
+import { Route as SidebarExamplesBasicRouteImport } from "./routes/_sidebar/examples/basic";
+import { Route as SidebarExamplesAiRouteImport } from "./routes/_sidebar/examples/ai";
+import { ServerRoute as ApiInngestServerRouteImport } from "./routes/api/inngest";
+import { ServerRoute as ApiChatServerRouteImport } from "./routes/api/chat";
+import { ServerRoute as ApiShapesTodosServerRouteImport } from "./routes/api/shapes/todos";
+import { ServerRoute as ApiBillingPortalServerRouteImport } from "./routes/api/billing/portal";
+import { ServerRoute as ApiBillingCheckoutServerRouteImport } from "./routes/api/billing/checkout";
+import { ServerRoute as ApiAuthSplatServerRouteImport } from "./routes/api/auth.$";
 
-const rootServerRouteImport = createServerRootRoute()
+const rootServerRouteImport = createServerRootRoute();
 
 const SignInRoute = SignInRouteImport.update({
-  id: '/sign-in',
-  path: '/sign-in',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/sign-in",
+	path: "/sign-in",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const SidebarRoute = SidebarRouteImport.update({
-  id: '/_sidebar',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/_sidebar",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const SidebarIndexRoute = SidebarIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => SidebarRoute,
-} as any)
+	id: "/",
+	path: "/",
+	getParentRoute: () => SidebarRoute,
+} as any);
 const SidebarExamplesSyncElectricRoute =
-  SidebarExamplesSyncElectricRouteImport.update({
-    id: '/examples/sync-electric',
-    path: '/examples/sync-electric',
-    getParentRoute: () => SidebarRoute,
-  } as any)
+	SidebarExamplesSyncElectricRouteImport.update({
+		id: "/examples/sync-electric",
+		path: "/examples/sync-electric",
+		getParentRoute: () => SidebarRoute,
+	} as any);
 const SidebarExamplesSyncDbRoute = SidebarExamplesSyncDbRouteImport.update({
-  id: '/examples/sync-db',
-  path: '/examples/sync-db',
-  getParentRoute: () => SidebarRoute,
-} as any)
+	id: "/examples/sync-db",
+	path: "/examples/sync-db",
+	getParentRoute: () => SidebarRoute,
+} as any);
 const SidebarExamplesSubscribedRoute =
-  SidebarExamplesSubscribedRouteImport.update({
-    id: '/examples/subscribed',
-    path: '/examples/subscribed',
-    getParentRoute: () => SidebarRoute,
-  } as any)
+	SidebarExamplesSubscribedRouteImport.update({
+		id: "/examples/subscribed",
+		path: "/examples/subscribed",
+		getParentRoute: () => SidebarRoute,
+	} as any);
 const SidebarExamplesBillingRoute = SidebarExamplesBillingRouteImport.update({
-  id: '/examples/billing',
-  path: '/examples/billing',
-  getParentRoute: () => SidebarRoute,
-} as any)
+	id: "/examples/billing",
+	path: "/examples/billing",
+	getParentRoute: () => SidebarRoute,
+} as any);
 const SidebarExamplesBasicRoute = SidebarExamplesBasicRouteImport.update({
-  id: '/examples/basic',
-  path: '/examples/basic',
-  getParentRoute: () => SidebarRoute,
-} as any)
+	id: "/examples/basic",
+	path: "/examples/basic",
+	getParentRoute: () => SidebarRoute,
+} as any);
 const SidebarExamplesAiRoute = SidebarExamplesAiRouteImport.update({
-  id: '/examples/ai',
-  path: '/examples/ai',
-  getParentRoute: () => SidebarRoute,
-} as any)
+	id: "/examples/ai",
+	path: "/examples/ai",
+	getParentRoute: () => SidebarRoute,
+} as any);
 const ApiInngestServerRoute = ApiInngestServerRouteImport.update({
-  id: '/api/inngest',
-  path: '/api/inngest',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/inngest",
+	path: "/api/inngest",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiChatServerRoute = ApiChatServerRouteImport.update({
-  id: '/api/chat',
-  path: '/api/chat',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/chat",
+	path: "/api/chat",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiShapesTodosServerRoute = ApiShapesTodosServerRouteImport.update({
-  id: '/api/shapes/todos',
-  path: '/api/shapes/todos',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/shapes/todos",
+	path: "/api/shapes/todos",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiBillingPortalServerRoute = ApiBillingPortalServerRouteImport.update({
-  id: '/api/billing/portal',
-  path: '/api/billing/portal',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/billing/portal",
+	path: "/api/billing/portal",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 const ApiBillingCheckoutServerRoute =
-  ApiBillingCheckoutServerRouteImport.update({
-    id: '/api/billing/checkout',
-    path: '/api/billing/checkout',
-    getParentRoute: () => rootServerRouteImport,
-  } as any)
+	ApiBillingCheckoutServerRouteImport.update({
+		id: "/api/billing/checkout",
+		path: "/api/billing/checkout",
+		getParentRoute: () => rootServerRouteImport,
+	} as any);
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
-  getParentRoute: () => rootServerRouteImport,
-} as any)
+	id: "/api/auth/$",
+	path: "/api/auth/$",
+	getParentRoute: () => rootServerRouteImport,
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/sign-in': typeof SignInRoute
-  '/': typeof SidebarIndexRoute
-  '/examples/ai': typeof SidebarExamplesAiRoute
-  '/examples/basic': typeof SidebarExamplesBasicRoute
-  '/examples/billing': typeof SidebarExamplesBillingRoute
-  '/examples/subscribed': typeof SidebarExamplesSubscribedRoute
-  '/examples/sync-db': typeof SidebarExamplesSyncDbRoute
-  '/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
+	"/sign-in": typeof SignInRoute;
+	"/": typeof SidebarIndexRoute;
+	"/examples/ai": typeof SidebarExamplesAiRoute;
+	"/examples/basic": typeof SidebarExamplesBasicRoute;
+	"/examples/billing": typeof SidebarExamplesBillingRoute;
+	"/examples/subscribed": typeof SidebarExamplesSubscribedRoute;
+	"/examples/sync-db": typeof SidebarExamplesSyncDbRoute;
+	"/examples/sync-electric": typeof SidebarExamplesSyncElectricRoute;
 }
 export interface FileRoutesByTo {
-  '/sign-in': typeof SignInRoute
-  '/': typeof SidebarIndexRoute
-  '/examples/ai': typeof SidebarExamplesAiRoute
-  '/examples/basic': typeof SidebarExamplesBasicRoute
-  '/examples/billing': typeof SidebarExamplesBillingRoute
-  '/examples/subscribed': typeof SidebarExamplesSubscribedRoute
-  '/examples/sync-db': typeof SidebarExamplesSyncDbRoute
-  '/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
+	"/sign-in": typeof SignInRoute;
+	"/": typeof SidebarIndexRoute;
+	"/examples/ai": typeof SidebarExamplesAiRoute;
+	"/examples/basic": typeof SidebarExamplesBasicRoute;
+	"/examples/billing": typeof SidebarExamplesBillingRoute;
+	"/examples/subscribed": typeof SidebarExamplesSubscribedRoute;
+	"/examples/sync-db": typeof SidebarExamplesSyncDbRoute;
+	"/examples/sync-electric": typeof SidebarExamplesSyncElectricRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/_sidebar': typeof SidebarRouteWithChildren
-  '/sign-in': typeof SignInRoute
-  '/_sidebar/': typeof SidebarIndexRoute
-  '/_sidebar/examples/ai': typeof SidebarExamplesAiRoute
-  '/_sidebar/examples/basic': typeof SidebarExamplesBasicRoute
-  '/_sidebar/examples/billing': typeof SidebarExamplesBillingRoute
-  '/_sidebar/examples/subscribed': typeof SidebarExamplesSubscribedRoute
-  '/_sidebar/examples/sync-db': typeof SidebarExamplesSyncDbRoute
-  '/_sidebar/examples/sync-electric': typeof SidebarExamplesSyncElectricRoute
+	__root__: typeof rootRouteImport;
+	"/_sidebar": typeof SidebarRouteWithChildren;
+	"/sign-in": typeof SignInRoute;
+	"/_sidebar/": typeof SidebarIndexRoute;
+	"/_sidebar/examples/ai": typeof SidebarExamplesAiRoute;
+	"/_sidebar/examples/basic": typeof SidebarExamplesBasicRoute;
+	"/_sidebar/examples/billing": typeof SidebarExamplesBillingRoute;
+	"/_sidebar/examples/subscribed": typeof SidebarExamplesSubscribedRoute;
+	"/_sidebar/examples/sync-db": typeof SidebarExamplesSyncDbRoute;
+	"/_sidebar/examples/sync-electric": typeof SidebarExamplesSyncElectricRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/sign-in'
-    | '/'
-    | '/examples/ai'
-    | '/examples/basic'
-    | '/examples/billing'
-    | '/examples/subscribed'
-    | '/examples/sync-db'
-    | '/examples/sync-electric'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/sign-in'
-    | '/'
-    | '/examples/ai'
-    | '/examples/basic'
-    | '/examples/billing'
-    | '/examples/subscribed'
-    | '/examples/sync-db'
-    | '/examples/sync-electric'
-  id:
-    | '__root__'
-    | '/_sidebar'
-    | '/sign-in'
-    | '/_sidebar/'
-    | '/_sidebar/examples/ai'
-    | '/_sidebar/examples/basic'
-    | '/_sidebar/examples/billing'
-    | '/_sidebar/examples/subscribed'
-    | '/_sidebar/examples/sync-db'
-    | '/_sidebar/examples/sync-electric'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths:
+		| "/sign-in"
+		| "/"
+		| "/examples/ai"
+		| "/examples/basic"
+		| "/examples/billing"
+		| "/examples/subscribed"
+		| "/examples/sync-db"
+		| "/examples/sync-electric";
+	fileRoutesByTo: FileRoutesByTo;
+	to:
+		| "/sign-in"
+		| "/"
+		| "/examples/ai"
+		| "/examples/basic"
+		| "/examples/billing"
+		| "/examples/subscribed"
+		| "/examples/sync-db"
+		| "/examples/sync-electric";
+	id:
+		| "__root__"
+		| "/_sidebar"
+		| "/sign-in"
+		| "/_sidebar/"
+		| "/_sidebar/examples/ai"
+		| "/_sidebar/examples/basic"
+		| "/_sidebar/examples/billing"
+		| "/_sidebar/examples/subscribed"
+		| "/_sidebar/examples/sync-db"
+		| "/_sidebar/examples/sync-electric";
+	fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  SidebarRoute: typeof SidebarRouteWithChildren
-  SignInRoute: typeof SignInRoute
+	SidebarRoute: typeof SidebarRouteWithChildren;
+	SignInRoute: typeof SignInRoute;
 }
 export interface FileServerRoutesByFullPath {
-  '/api/chat': typeof ApiChatServerRoute
-  '/api/inngest': typeof ApiInngestServerRoute
-  '/api/auth/$': typeof ApiAuthSplatServerRoute
-  '/api/billing/checkout': typeof ApiBillingCheckoutServerRoute
-  '/api/billing/portal': typeof ApiBillingPortalServerRoute
-  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
+	"/api/chat": typeof ApiChatServerRoute;
+	"/api/inngest": typeof ApiInngestServerRoute;
+	"/api/auth/$": typeof ApiAuthSplatServerRoute;
+	"/api/billing/checkout": typeof ApiBillingCheckoutServerRoute;
+	"/api/billing/portal": typeof ApiBillingPortalServerRoute;
+	"/api/shapes/todos": typeof ApiShapesTodosServerRoute;
 }
 export interface FileServerRoutesByTo {
-  '/api/chat': typeof ApiChatServerRoute
-  '/api/inngest': typeof ApiInngestServerRoute
-  '/api/auth/$': typeof ApiAuthSplatServerRoute
-  '/api/billing/checkout': typeof ApiBillingCheckoutServerRoute
-  '/api/billing/portal': typeof ApiBillingPortalServerRoute
-  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
+	"/api/chat": typeof ApiChatServerRoute;
+	"/api/inngest": typeof ApiInngestServerRoute;
+	"/api/auth/$": typeof ApiAuthSplatServerRoute;
+	"/api/billing/checkout": typeof ApiBillingCheckoutServerRoute;
+	"/api/billing/portal": typeof ApiBillingPortalServerRoute;
+	"/api/shapes/todos": typeof ApiShapesTodosServerRoute;
 }
 export interface FileServerRoutesById {
-  __root__: typeof rootServerRouteImport
-  '/api/chat': typeof ApiChatServerRoute
-  '/api/inngest': typeof ApiInngestServerRoute
-  '/api/auth/$': typeof ApiAuthSplatServerRoute
-  '/api/billing/checkout': typeof ApiBillingCheckoutServerRoute
-  '/api/billing/portal': typeof ApiBillingPortalServerRoute
-  '/api/shapes/todos': typeof ApiShapesTodosServerRoute
+	__root__: typeof rootServerRouteImport;
+	"/api/chat": typeof ApiChatServerRoute;
+	"/api/inngest": typeof ApiInngestServerRoute;
+	"/api/auth/$": typeof ApiAuthSplatServerRoute;
+	"/api/billing/checkout": typeof ApiBillingCheckoutServerRoute;
+	"/api/billing/portal": typeof ApiBillingPortalServerRoute;
+	"/api/shapes/todos": typeof ApiShapesTodosServerRoute;
 }
 export interface FileServerRouteTypes {
-  fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths:
-    | '/api/chat'
-    | '/api/inngest'
-    | '/api/auth/$'
-    | '/api/billing/checkout'
-    | '/api/billing/portal'
-    | '/api/shapes/todos'
-  fileServerRoutesByTo: FileServerRoutesByTo
-  to:
-    | '/api/chat'
-    | '/api/inngest'
-    | '/api/auth/$'
-    | '/api/billing/checkout'
-    | '/api/billing/portal'
-    | '/api/shapes/todos'
-  id:
-    | '__root__'
-    | '/api/chat'
-    | '/api/inngest'
-    | '/api/auth/$'
-    | '/api/billing/checkout'
-    | '/api/billing/portal'
-    | '/api/shapes/todos'
-  fileServerRoutesById: FileServerRoutesById
+	fileServerRoutesByFullPath: FileServerRoutesByFullPath;
+	fullPaths:
+		| "/api/chat"
+		| "/api/inngest"
+		| "/api/auth/$"
+		| "/api/billing/checkout"
+		| "/api/billing/portal"
+		| "/api/shapes/todos";
+	fileServerRoutesByTo: FileServerRoutesByTo;
+	to:
+		| "/api/chat"
+		| "/api/inngest"
+		| "/api/auth/$"
+		| "/api/billing/checkout"
+		| "/api/billing/portal"
+		| "/api/shapes/todos";
+	id:
+		| "__root__"
+		| "/api/chat"
+		| "/api/inngest"
+		| "/api/auth/$"
+		| "/api/billing/checkout"
+		| "/api/billing/portal"
+		| "/api/shapes/todos";
+	fileServerRoutesById: FileServerRoutesById;
 }
 export interface RootServerRouteChildren {
-  ApiChatServerRoute: typeof ApiChatServerRoute
-  ApiInngestServerRoute: typeof ApiInngestServerRoute
-  ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
-  ApiBillingCheckoutServerRoute: typeof ApiBillingCheckoutServerRoute
-  ApiBillingPortalServerRoute: typeof ApiBillingPortalServerRoute
-  ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute
+	ApiChatServerRoute: typeof ApiChatServerRoute;
+	ApiInngestServerRoute: typeof ApiInngestServerRoute;
+	ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute;
+	ApiBillingCheckoutServerRoute: typeof ApiBillingCheckoutServerRoute;
+	ApiBillingPortalServerRoute: typeof ApiBillingPortalServerRoute;
+	ApiShapesTodosServerRoute: typeof ApiShapesTodosServerRoute;
 }
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/sign-in': {
-      id: '/sign-in'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof SignInRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_sidebar': {
-      id: '/_sidebar'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof SidebarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_sidebar/': {
-      id: '/_sidebar/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof SidebarIndexRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-    '/_sidebar/examples/sync-electric': {
-      id: '/_sidebar/examples/sync-electric'
-      path: '/examples/sync-electric'
-      fullPath: '/examples/sync-electric'
-      preLoaderRoute: typeof SidebarExamplesSyncElectricRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-    '/_sidebar/examples/sync-db': {
-      id: '/_sidebar/examples/sync-db'
-      path: '/examples/sync-db'
-      fullPath: '/examples/sync-db'
-      preLoaderRoute: typeof SidebarExamplesSyncDbRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-    '/_sidebar/examples/subscribed': {
-      id: '/_sidebar/examples/subscribed'
-      path: '/examples/subscribed'
-      fullPath: '/examples/subscribed'
-      preLoaderRoute: typeof SidebarExamplesSubscribedRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-    '/_sidebar/examples/billing': {
-      id: '/_sidebar/examples/billing'
-      path: '/examples/billing'
-      fullPath: '/examples/billing'
-      preLoaderRoute: typeof SidebarExamplesBillingRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-    '/_sidebar/examples/basic': {
-      id: '/_sidebar/examples/basic'
-      path: '/examples/basic'
-      fullPath: '/examples/basic'
-      preLoaderRoute: typeof SidebarExamplesBasicRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-    '/_sidebar/examples/ai': {
-      id: '/_sidebar/examples/ai'
-      path: '/examples/ai'
-      fullPath: '/examples/ai'
-      preLoaderRoute: typeof SidebarExamplesAiRouteImport
-      parentRoute: typeof SidebarRoute
-    }
-  }
+declare module "@tanstack/react-router" {
+	interface FileRoutesByPath {
+		"/sign-in": {
+			id: "/sign-in";
+			path: "/sign-in";
+			fullPath: "/sign-in";
+			preLoaderRoute: typeof SignInRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/_sidebar": {
+			id: "/_sidebar";
+			path: "";
+			fullPath: "";
+			preLoaderRoute: typeof SidebarRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/_sidebar/": {
+			id: "/_sidebar/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof SidebarIndexRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+		"/_sidebar/examples/sync-electric": {
+			id: "/_sidebar/examples/sync-electric";
+			path: "/examples/sync-electric";
+			fullPath: "/examples/sync-electric";
+			preLoaderRoute: typeof SidebarExamplesSyncElectricRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+		"/_sidebar/examples/sync-db": {
+			id: "/_sidebar/examples/sync-db";
+			path: "/examples/sync-db";
+			fullPath: "/examples/sync-db";
+			preLoaderRoute: typeof SidebarExamplesSyncDbRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+		"/_sidebar/examples/subscribed": {
+			id: "/_sidebar/examples/subscribed";
+			path: "/examples/subscribed";
+			fullPath: "/examples/subscribed";
+			preLoaderRoute: typeof SidebarExamplesSubscribedRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+		"/_sidebar/examples/billing": {
+			id: "/_sidebar/examples/billing";
+			path: "/examples/billing";
+			fullPath: "/examples/billing";
+			preLoaderRoute: typeof SidebarExamplesBillingRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+		"/_sidebar/examples/basic": {
+			id: "/_sidebar/examples/basic";
+			path: "/examples/basic";
+			fullPath: "/examples/basic";
+			preLoaderRoute: typeof SidebarExamplesBasicRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+		"/_sidebar/examples/ai": {
+			id: "/_sidebar/examples/ai";
+			path: "/examples/ai";
+			fullPath: "/examples/ai";
+			preLoaderRoute: typeof SidebarExamplesAiRouteImport;
+			parentRoute: typeof SidebarRoute;
+		};
+	}
 }
-declare module '@tanstack/react-start/server' {
-  interface ServerFileRoutesByPath {
-    '/api/inngest': {
-      id: '/api/inngest'
-      path: '/api/inngest'
-      fullPath: '/api/inngest'
-      preLoaderRoute: typeof ApiInngestServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/chat': {
-      id: '/api/chat'
-      path: '/api/chat'
-      fullPath: '/api/chat'
-      preLoaderRoute: typeof ApiChatServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/shapes/todos': {
-      id: '/api/shapes/todos'
-      path: '/api/shapes/todos'
-      fullPath: '/api/shapes/todos'
-      preLoaderRoute: typeof ApiShapesTodosServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/billing/portal': {
-      id: '/api/billing/portal'
-      path: '/api/billing/portal'
-      fullPath: '/api/billing/portal'
-      preLoaderRoute: typeof ApiBillingPortalServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/billing/checkout': {
-      id: '/api/billing/checkout'
-      path: '/api/billing/checkout'
-      fullPath: '/api/billing/checkout'
-      preLoaderRoute: typeof ApiBillingCheckoutServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-  }
+declare module "@tanstack/react-start/server" {
+	interface ServerFileRoutesByPath {
+		"/api/inngest": {
+			id: "/api/inngest";
+			path: "/api/inngest";
+			fullPath: "/api/inngest";
+			preLoaderRoute: typeof ApiInngestServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/chat": {
+			id: "/api/chat";
+			path: "/api/chat";
+			fullPath: "/api/chat";
+			preLoaderRoute: typeof ApiChatServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/shapes/todos": {
+			id: "/api/shapes/todos";
+			path: "/api/shapes/todos";
+			fullPath: "/api/shapes/todos";
+			preLoaderRoute: typeof ApiShapesTodosServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/billing/portal": {
+			id: "/api/billing/portal";
+			path: "/api/billing/portal";
+			fullPath: "/api/billing/portal";
+			preLoaderRoute: typeof ApiBillingPortalServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/billing/checkout": {
+			id: "/api/billing/checkout";
+			path: "/api/billing/checkout";
+			fullPath: "/api/billing/checkout";
+			preLoaderRoute: typeof ApiBillingCheckoutServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+		"/api/auth/$": {
+			id: "/api/auth/$";
+			path: "/api/auth/$";
+			fullPath: "/api/auth/$";
+			preLoaderRoute: typeof ApiAuthSplatServerRouteImport;
+			parentRoute: typeof rootServerRouteImport;
+		};
+	}
 }
 
 interface SidebarRouteChildren {
-  SidebarIndexRoute: typeof SidebarIndexRoute
-  SidebarExamplesAiRoute: typeof SidebarExamplesAiRoute
-  SidebarExamplesBasicRoute: typeof SidebarExamplesBasicRoute
-  SidebarExamplesBillingRoute: typeof SidebarExamplesBillingRoute
-  SidebarExamplesSubscribedRoute: typeof SidebarExamplesSubscribedRoute
-  SidebarExamplesSyncDbRoute: typeof SidebarExamplesSyncDbRoute
-  SidebarExamplesSyncElectricRoute: typeof SidebarExamplesSyncElectricRoute
+	SidebarIndexRoute: typeof SidebarIndexRoute;
+	SidebarExamplesAiRoute: typeof SidebarExamplesAiRoute;
+	SidebarExamplesBasicRoute: typeof SidebarExamplesBasicRoute;
+	SidebarExamplesBillingRoute: typeof SidebarExamplesBillingRoute;
+	SidebarExamplesSubscribedRoute: typeof SidebarExamplesSubscribedRoute;
+	SidebarExamplesSyncDbRoute: typeof SidebarExamplesSyncDbRoute;
+	SidebarExamplesSyncElectricRoute: typeof SidebarExamplesSyncElectricRoute;
 }
 
 const SidebarRouteChildren: SidebarRouteChildren = {
-  SidebarIndexRoute: SidebarIndexRoute,
-  SidebarExamplesAiRoute: SidebarExamplesAiRoute,
-  SidebarExamplesBasicRoute: SidebarExamplesBasicRoute,
-  SidebarExamplesBillingRoute: SidebarExamplesBillingRoute,
-  SidebarExamplesSubscribedRoute: SidebarExamplesSubscribedRoute,
-  SidebarExamplesSyncDbRoute: SidebarExamplesSyncDbRoute,
-  SidebarExamplesSyncElectricRoute: SidebarExamplesSyncElectricRoute,
-}
+	SidebarIndexRoute: SidebarIndexRoute,
+	SidebarExamplesAiRoute: SidebarExamplesAiRoute,
+	SidebarExamplesBasicRoute: SidebarExamplesBasicRoute,
+	SidebarExamplesBillingRoute: SidebarExamplesBillingRoute,
+	SidebarExamplesSubscribedRoute: SidebarExamplesSubscribedRoute,
+	SidebarExamplesSyncDbRoute: SidebarExamplesSyncDbRoute,
+	SidebarExamplesSyncElectricRoute: SidebarExamplesSyncElectricRoute,
+};
 
 const SidebarRouteWithChildren =
-  SidebarRoute._addFileChildren(SidebarRouteChildren)
+	SidebarRoute._addFileChildren(SidebarRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
-  SidebarRoute: SidebarRouteWithChildren,
-  SignInRoute: SignInRoute,
-}
+	SidebarRoute: SidebarRouteWithChildren,
+	SignInRoute: SignInRoute,
+};
 export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+	._addFileChildren(rootRouteChildren)
+	._addFileTypes<FileRouteTypes>();
 const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiChatServerRoute: ApiChatServerRoute,
-  ApiInngestServerRoute: ApiInngestServerRoute,
-  ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
-  ApiBillingCheckoutServerRoute: ApiBillingCheckoutServerRoute,
-  ApiBillingPortalServerRoute: ApiBillingPortalServerRoute,
-  ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
-}
+	ApiChatServerRoute: ApiChatServerRoute,
+	ApiInngestServerRoute: ApiInngestServerRoute,
+	ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
+	ApiBillingCheckoutServerRoute: ApiBillingCheckoutServerRoute,
+	ApiBillingPortalServerRoute: ApiBillingPortalServerRoute,
+	ApiShapesTodosServerRoute: ApiShapesTodosServerRoute,
+};
 export const serverRouteTree = rootServerRouteImport
-  ._addFileChildren(rootServerRouteChildren)
-  ._addFileTypes<FileServerRouteTypes>()
+	._addFileChildren(rootServerRouteChildren)
+	._addFileTypes<FileServerRouteTypes>();

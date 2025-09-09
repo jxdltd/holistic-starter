@@ -4,37 +4,37 @@ import { createServerFileRoute } from "@tanstack/react-start/server";
 import { z } from "zod";
 
 const paramsSchema = z.object({
-  product: z.string(),
+	product: z.string(),
 });
 
 export const ServerRoute = createServerFileRoute(
-  "/api/billing/checkout"
+	"/api/billing/checkout",
 ).methods({
-  GET: async ({ request }) => {
-    const session = await auth.api.getSession({
-      headers: request.headers,
-    });
+	GET: async ({ request }) => {
+		const session = await auth.api.getSession({
+			headers: request.headers,
+		});
 
-    if (!session) {
-      return new Response("Unauthorized", { status: 401 });
-    }
+		if (!session) {
+			return new Response("Unauthorized", { status: 401 });
+		}
 
-    const url = new URL(request.url);
+		const url = new URL(request.url);
 
-    const params = paramsSchema.parse({
-      product: url.searchParams.get("product"),
-    });
+		const params = paramsSchema.parse({
+			product: url.searchParams.get("product"),
+		});
 
-    const checkout = await polar.checkouts.create({
-      products: [params.product],
-      externalCustomerId: session.user.id,
-    });
+		const checkout = await polar.checkouts.create({
+			products: [params.product],
+			externalCustomerId: session.user.id,
+		});
 
-    return new Response(checkout.url, {
-      status: 302,
-      headers: {
-        Location: checkout.url,
-      },
-    });
-  },
+		return new Response(checkout.url, {
+			status: 302,
+			headers: {
+				Location: checkout.url,
+			},
+		});
+	},
 });

@@ -6,46 +6,46 @@ import { useEffect } from "react";
 import { AppSidebar } from "../components/sidebar";
 
 export const Route = createFileRoute("/_sidebar")({
-  component: RouteComponent,
-  loader: async () => {
-    const auth = await getAuth();
+	component: RouteComponent,
+	loader: async () => {
+		const auth = await getAuth();
 
-    Sentry.setUser(
-      auth
-        ? {
-            id: auth.user.id,
-            email: auth.user.email,
-          }
-        : null
-    );
+		Sentry.setUser(
+			auth
+				? {
+						id: auth.user.id,
+						email: auth.user.email,
+					}
+				: null,
+		);
 
-    return {
-      auth,
-    };
-  },
+		return {
+			auth,
+		};
+	},
 });
 
 function RouteComponent() {
-  const { auth } = Route.useLoaderData();
+	const { auth } = Route.useLoaderData();
 
-  useEffect(() => {
-    Sentry.setUser(
-      auth
-        ? {
-            id: auth.user.id,
-            email: auth.user.email,
-          }
-        : null
-    );
-  }, [auth]);
+	useEffect(() => {
+		Sentry.setUser(
+			auth
+				? {
+						id: auth.user.id,
+						email: auth.user.email,
+					}
+				: null,
+		);
+	}, [auth]);
 
-  return (
-    <SidebarProvider>
-      <AppSidebar />
-      <main className="w-full">
-        {/* <SidebarTrigger /> */}
-        <Outlet />
-      </main>
-    </SidebarProvider>
-  );
+	return (
+		<SidebarProvider>
+			<AppSidebar />
+			<main className="w-full">
+				{/* <SidebarTrigger /> */}
+				<Outlet />
+			</main>
+		</SidebarProvider>
+	);
 }
