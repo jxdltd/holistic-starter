@@ -6,6 +6,19 @@
 1. Install dependencies with `bun install`.
 1. Copy and complete each `.env.example` files.
 
+## Features
+
+- Authentication.
+- Organizations.
+- Billing.
+- Email.
+- Database.
+- Background Jobs.
+- Agentic AI.
+- Forms.
+- Design System.
+- Sync Engine.
+
 ## Apps
 
 - [`@repo/app`](apps/app/readme.md) - Main App.
