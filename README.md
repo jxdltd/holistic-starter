@@ -26,3 +26,9 @@
 - [`@repo/theme`](packages/theme/readme.md) - Theme.
 - [`@repo/ui`](packages/ui/readme.md) - Design System.
 - [`@repo/utils`](packages/utils/readme.md) - Utils.
+
+## Sponsors
+
+Our mission is to keep Holistic Starter free for everyone. To do this we rely on corporate sponsors to keep the project alive.
+
+Interested? [Let's chat](https://cal.com/jamie-davenport/starter-sponsor-chat).
