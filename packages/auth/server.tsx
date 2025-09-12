@@ -24,7 +24,7 @@ export const auth = betterAuth({
 				const inviteLink = `${env().APP_URL}/invite/${id}`;
 
 				await resend.emails.send({
-					from: "noreply@updates.buildhype.dev", // todo
+					from: env().RESEND_FROM_EMAIL,
 					to: email,
 					subject: `You're invited to join ${organization.name}`,
 					react: <InviteEmail callbackUrl={inviteLink} org={organization} />,
@@ -34,7 +34,7 @@ export const auth = betterAuth({
 		magicLink({
 			sendMagicLink: async ({ email, url }) => {
 				await resend.emails.send({
-					from: "noreply@updates.buildhype.dev",
+					from: env().RESEND_FROM_EMAIL,
 					to: email,
 					subject: "Magic Link",
 					react: <VerifyEmail callbackUrl={url} />,

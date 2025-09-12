@@ -44,13 +44,15 @@ function RouteComponent() {
 			onSubmit: formSchema,
 		},
 		onSubmit: ({ value }) => {
-			auth.organization.create({
-				name: value.name,
-				slug: value.name.toLowerCase().replace(/ /g, "-"),
-				userId: user.id,
-			}).then(() => {
-			router.navigate({ to: "/" });
-			});
+			auth.organization
+				.create({
+					name: value.name,
+					slug: value.name.toLowerCase().replace(/ /g, "-"),
+					userId: user.id,
+				})
+				.then(() => {
+					router.navigate({ to: "/" });
+				});
 		},
 	});
 
