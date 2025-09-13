@@ -2,12 +2,16 @@ import { auth } from "@repo/auth/client";
 import { useAppForm } from "@repo/forms";
 import { Button } from "@repo/ui/components/button";
 import { Separator } from "@repo/ui/components/separator";
+import {
+	IconBrandGithub,
+	IconBrandGoogle,
+	IconBrandGoogleFilled,
+} from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
 import { Logo } from "../components/logo";
 import { env } from "../env";
-import { IconBrandGithub, IconBrandGoogle, IconBrandGoogleFilled } from "@tabler/icons-react";
 
 const enabledProviders = createServerFn({ method: "GET" }).handler(() => {
 	return {
@@ -83,7 +87,9 @@ function RouteComponent() {
 					<Button
 						className="w-full"
 						variant="outline"
-						onClick={() => auth.signIn.social({ provider: "google", callbackURL: "/" })}
+						onClick={() =>
+							auth.signIn.social({ provider: "google", callbackURL: "/" })
+						}
 					>
 						<IconBrandGoogleFilled />
 						Sign In with Google
