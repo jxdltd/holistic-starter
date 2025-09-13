@@ -1,5 +1,7 @@
 # The Holistic Starter
 
+Check out the live demo at [demo.starter.holistic.company](https://demo.starter.holistic.company).
+
 ## Getting Started
 
 1. Clone the repository.

@@ -1,14 +1,30 @@
 import { auth } from "@repo/auth/client";
 import { useAppForm } from "@repo/forms";
+import { Button } from "@repo/ui/components/button";
+import { Separator } from "@repo/ui/components/separator";
 import { createFileRoute } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
 import { Logo } from "../components/logo";
+import { env } from "../env";
+import { IconBrandGithub } from "@tabler/icons-react";
+
+const enabledProviders = createServerFn({ method: "GET" }).handler(() => {
+	return {
+		github: !!env().GITHUB_CLIENT_ID && !!env().GITHUB_CLIENT_SECRET,
+	};
+});
 
 export const Route = createFileRoute("/sign-in")({
 	component: RouteComponent,
 	head: () => ({
 		meta: [{ title: "Sign In" }],
 	}),
+	loader: async () => {
+		return {
+			enabledProviders: await enabledProviders(),
+		};
+	},
 });
 
 const formSchema = z.object({
@@ -16,6 +32,8 @@ const formSchema = z.object({
 });
 
 function RouteComponent() {
+	const { enabledProviders } = Route.useLoaderData();
+
 	const form = useAppForm({
 		defaultValues: {
 			email: "",
@@ -31,21 +49,36 @@ function RouteComponent() {
 	return (
 		<div className="flex flex-col items-center justify-center h-screen bg-accent gap-5">
 			<Logo />
-			<form
-				className="flex flex-col items-center justify-center gap-4 bg-card p-4 rounded-md w-full max-w-md border shadow-xs"
-				onSubmit={(e) => {
-					e.preventDefault();
-					form.handleSubmit();
-				}}
-			>
-				<form.AppField
-					name="email"
-					children={(field) => <field.TextField label="Email" />}
-				/>
-				<form.AppForm>
-					<form.SubmitButton>Sign In</form.SubmitButton>
-				</form.AppForm>
-			</form>
+			<div className="flex flex-col items-center justify-center gap-4 bg-card p-4 rounded-md w-full max-w-md border shadow-xs">
+				<form
+					className="flex flex-col items-center justify-center gap-4 w-full"
+					onSubmit={(e) => {
+						e.preventDefault();
+						form.handleSubmit();
+					}}
+				>
+					<form.AppField
+						name="email"
+						children={(field) => <field.TextField label="Email" />}
+					/>
+					<form.AppForm>
+						<form.SubmitButton>Sign In</form.SubmitButton>
+					</form.AppForm>
+				</form>
+				<Separator />
+				{enabledProviders.github && (
+					<Button
+						className="w-full"
+						variant="outline"
+						onClick={() =>
+							auth.signIn.social({ provider: "github", callbackURL: "/" })
+						}
+					>
+						<IconBrandGithub />
+						Sign In with Github
+					</Button>
+				)}
+			</div>
 		</div>
 	);
 }

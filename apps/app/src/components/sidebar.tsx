@@ -13,7 +13,7 @@ import {
 	SidebarMenuItem,
 } from "@repo/ui/components/sidebar";
 import { IconCreditCard, IconHome, IconLogout } from "@tabler/icons-react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { BugReport } from "./bug-report";
 import { TeamSwitcher } from "./team-switcher";
 
@@ -22,6 +22,8 @@ type Props = {
 };
 
 export function AppSidebar({ activeOrgId }: Props) {
+	const router = useRouter();
+
 	return (
 		<Sidebar>
 			<SidebarHeader>
@@ -93,7 +95,12 @@ export function AppSidebar({ activeOrgId }: Props) {
 					</SidebarMenuItem>
 					<BugReport />
 					<SidebarMenuItem>
-						<SidebarMenuButton onClick={() => auth.signOut()}>
+						<SidebarMenuButton
+							onClick={() => {
+								auth.signOut();
+								router.navigate({ to: "/sign-in" });
+							}}
+						>
 							<IconLogout />
 							Sign Out
 						</SidebarMenuButton>
