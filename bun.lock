@@ -30,6 +30,7 @@
         "@repo/functions": "workspace:*",
         "@repo/jobs": "workspace:*",
         "@repo/theme": "workspace:*",
+        "@repo/tooling": "workspace:*",
         "@repo/ui": "workspace:*",
         "@repo/utils": "workspace:*",
         "@sentry/tanstackstart-react": "^10.10.0",
@@ -59,6 +60,7 @@
       "name": "@repo/ai",
       "dependencies": {
         "@ai-sdk/openai": "^2.0.27",
+        "@repo/tooling": "workspace:*",
         "@t3-oss/env-core": "^0.13.8",
         "ai": "^5.0.38",
         "zod": "^4.1.5",
@@ -216,6 +218,12 @@
         "react": "^19.1.1",
         "zod": "^4.1.5",
       },
+      "devDependencies": {
+        "typescript": "^5.9.2",
+      },
+    },
+    "packages/tooling": {
+      "name": "@repo/tooling",
       "devDependencies": {
         "typescript": "^5.9.2",
       },
@@ -956,6 +964,8 @@
     "@repo/mail": ["@repo/mail@workspace:packages/mail"],
 
     "@repo/theme": ["@repo/theme@workspace:packages/theme"],
+
+    "@repo/tooling": ["@repo/tooling@workspace:packages/tooling"],
 
     "@repo/ui": ["@repo/ui@workspace:packages/ui"],
 

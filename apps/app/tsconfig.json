@@ -1,9 +1,6 @@
 {
+	"extends": "@repo/tooling/tsconfig.json",
 	"compilerOptions": {
-		"jsx": "react-jsx",
-		"moduleResolution": "Bundler",
-		"module": "ESNext",
-		"target": "ESNext",
 		"skipLibCheck": true,
 		"strictNullChecks": true
 	}

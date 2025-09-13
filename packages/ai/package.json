@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {},
 	"dependencies": {
+		"@repo/tooling": "workspace:*",
 		"@ai-sdk/openai": "^2.0.27",
 		"@t3-oss/env-core": "^0.13.8",
 		"ai": "^5.0.38",

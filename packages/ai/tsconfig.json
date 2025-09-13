@@ -1,8 +1,3 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"target": "ESNext"
-	}
+	"extends": "@repo/tooling/tsconfig.json"
 }
