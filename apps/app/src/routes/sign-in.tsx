@@ -7,11 +7,12 @@ import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
 import { Logo } from "../components/logo";
 import { env } from "../env";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandGoogle, IconBrandGoogleFilled } from "@tabler/icons-react";
 
 const enabledProviders = createServerFn({ method: "GET" }).handler(() => {
 	return {
 		github: !!env().GITHUB_CLIENT_ID && !!env().GITHUB_CLIENT_SECRET,
+		google: !!env().GOOGLE_CLIENT_ID && !!env().GOOGLE_CLIENT_SECRET,
 	};
 });
 
@@ -76,6 +77,16 @@ function RouteComponent() {
 					>
 						<IconBrandGithub />
 						Sign In with Github
+					</Button>
+				)}
+				{enabledProviders.google && (
+					<Button
+						className="w-full"
+						variant="outline"
+						onClick={() => auth.signIn.social({ provider: "google", callbackURL: "/" })}
+					>
+						<IconBrandGoogleFilled />
+						Sign In with Google
 					</Button>
 				)}
 			</div>
