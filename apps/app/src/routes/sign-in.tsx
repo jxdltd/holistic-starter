@@ -1,18 +1,14 @@
 import { auth } from "@repo/auth/client";
 import { useAppForm } from "@repo/forms";
+import { Badge } from "@repo/ui/components/badge";
 import { Button } from "@repo/ui/components/button";
 import { Separator } from "@repo/ui/components/separator";
-import {
-	IconBrandGithub,
-	IconBrandGoogle,
-	IconBrandGoogleFilled,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandGoogleFilled } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
 import { Logo } from "../components/logo";
 import { env } from "../env";
-import { Badge } from "@repo/ui/components/badge";
 
 const enabledProviders = createServerFn({ method: "GET" }).handler(() => {
 	return {
