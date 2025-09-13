@@ -12,6 +12,7 @@ import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
 import { Logo } from "../components/logo";
 import { env } from "../env";
+import { Badge } from "@repo/ui/components/badge";
 
 const enabledProviders = createServerFn({ method: "GET" }).handler(() => {
 	return {
@@ -37,6 +38,8 @@ const formSchema = z.object({
 });
 
 function RouteComponent() {
+	const lastMethod = auth.getLastUsedLoginMethod();
+
 	const { enabledProviders } = Route.useLoaderData();
 
 	const form = useAppForm({
@@ -67,7 +70,10 @@ function RouteComponent() {
 						children={(field) => <field.TextField label="Email" />}
 					/>
 					<form.AppForm>
-						<form.SubmitButton>Sign In</form.SubmitButton>
+						<form.SubmitButton>
+							<span>Sign In</span>
+							{lastMethod === "email" && <Badge>Last used</Badge>}
+						</form.SubmitButton>
 					</form.AppForm>
 				</form>
 				<Separator />
@@ -81,6 +87,7 @@ function RouteComponent() {
 					>
 						<IconBrandGithub />
 						Sign In with Github
+						{lastMethod === "github" && <Badge>Last used</Badge>}
 					</Button>
 				)}
 				{enabledProviders.google && (
@@ -93,6 +100,7 @@ function RouteComponent() {
 					>
 						<IconBrandGoogleFilled />
 						Sign In with Google
+						{lastMethod === "google" && <Badge>Last used</Badge>}
 					</Button>
 				)}
 			</div>

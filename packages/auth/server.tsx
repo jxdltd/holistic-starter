@@ -5,7 +5,7 @@ import { InviteEmail } from "@repo/mail/emails/invite";
 import { VerifyEmail } from "@repo/mail/emails/magic-link";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { magicLink, organization } from "better-auth/plugins";
+import { lastLoginMethod, magicLink, organization } from "better-auth/plugins";
 import { reactStartCookies } from "better-auth/react-start";
 import { env } from "./env";
 
@@ -29,6 +29,7 @@ export const auth = betterAuth({
 	}),
 	plugins: [
 		reactStartCookies(),
+		lastLoginMethod(),
 		organization({
 			async sendInvitationEmail({ email, id, organization }) {
 				const inviteLink = `${env().APP_URL}/invite/${id}`;
