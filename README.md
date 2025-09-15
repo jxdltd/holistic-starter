@@ -8,6 +8,14 @@ Check out the live demo at [demo.starter.holistic.company](https://demo.starter.
 1. Install dependencies with `bun install`.
 1. Copy and complete each `.env.example` files.
 
+### Automated Setup (Work in Progress)
+
+Our automated setup will configure your project and infrastructure.
+
+```sh
+bun run ./setup.ts
+```
+
 ## Features
 
 - Authentication.
