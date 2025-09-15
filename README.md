@@ -5,16 +5,7 @@ Check out the live demo at [demo.starter.holistic.company](https://demo.starter.
 ## Getting Started
 
 1. Clone the repository.
-1. Install dependencies with `bun install`.
-1. Copy and complete each `.env.example` files.
-
-### Automated Setup (Work in Progress)
-
-Our automated setup will configure your project and infrastructure.
-
-```sh
-bun run ./setup.ts
-```
+1. Run `bun run ./setup.ts` to setup the project.
 
 ## Features
 
