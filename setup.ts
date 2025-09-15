@@ -1,3 +1,4 @@
+import { input } from "@inquirer/prompts";
 import alchemy from "alchemy";
 import { NeonProject } from "alchemy/neon";
 import { $ } from "bun";
@@ -6,7 +7,24 @@ function installDependencies() {
 	return $`bun install`;
 }
 
-async function provisionResources() {
+const defaultConfig = {
+	neonApiKey: process.env.NEON_API_KEY,
+};
+
+async function getConfig() {
+	const neonApiKey = await input({
+		default: defaultConfig.neonApiKey,
+		message: "Enter your Neon API key",
+	});
+
+	return {
+		neonApiKey,
+	};
+}
+
+type Config = Awaited<ReturnType<typeof getConfig>>;
+
+async function provisionResources(config: Config) {
 	const projectName = "my-app";
 
 	const app = await alchemy(projectName, {
@@ -15,6 +33,7 @@ async function provisionResources() {
 
 	const project = await NeonProject(projectName, {
 		name: projectName,
+		apiKey: alchemy.secret(config.neonApiKey),
 	});
 
 	console.info("Copy the below into your .env files");
@@ -25,4 +44,7 @@ async function provisionResources() {
 	await app.finalize();
 }
 
-installDependencies().then(provisionResources).catch(console.error);
+installDependencies()
+	.then(getConfig)
+	.then(provisionResources)
+	.catch(console.error);
