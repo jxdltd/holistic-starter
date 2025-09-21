@@ -16,6 +16,7 @@ import { Route as SpotlightRouteImport } from './routes/_spotlight'
 import { Route as SidebarRouteImport } from './routes/_sidebar'
 import { Route as SidebarIndexRouteImport } from './routes/_sidebar/index'
 import { Route as OrgsSlugRouteImport } from './routes/orgs.$slug'
+import { Route as SpotlightEmailRouteImport } from './routes/_spotlight/email'
 import { Route as SpotlightOrgsNewRouteImport } from './routes/_spotlight/orgs.new'
 import { Route as SpotlightInviteIdRouteImport } from './routes/_spotlight/invite.$id'
 import { Route as SidebarExamplesSyncElectricRouteImport } from './routes/_sidebar/examples/sync-electric'
@@ -55,6 +56,11 @@ const OrgsSlugRoute = OrgsSlugRouteImport.update({
   id: '/orgs/$slug',
   path: '/orgs/$slug',
   getParentRoute: () => rootRouteImport,
+} as any)
+const SpotlightEmailRoute = SpotlightEmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => SpotlightRoute,
 } as any)
 const SpotlightOrgsNewRoute = SpotlightOrgsNewRouteImport.update({
   id: '/orgs/new',
@@ -132,6 +138,7 @@ const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/sign-in': typeof SignInRoute
+  '/email': typeof SpotlightEmailRoute
   '/orgs/$slug': typeof OrgsSlugRoute
   '/': typeof SidebarIndexRoute
   '/examples/ai': typeof SidebarExamplesAiRoute
@@ -145,6 +152,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/sign-in': typeof SignInRoute
+  '/email': typeof SpotlightEmailRoute
   '/orgs/$slug': typeof OrgsSlugRoute
   '/': typeof SidebarIndexRoute
   '/examples/ai': typeof SidebarExamplesAiRoute
@@ -161,6 +169,7 @@ export interface FileRoutesById {
   '/_sidebar': typeof SidebarRouteWithChildren
   '/_spotlight': typeof SpotlightRouteWithChildren
   '/sign-in': typeof SignInRoute
+  '/_spotlight/email': typeof SpotlightEmailRoute
   '/orgs/$slug': typeof OrgsSlugRoute
   '/_sidebar/': typeof SidebarIndexRoute
   '/_sidebar/examples/ai': typeof SidebarExamplesAiRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/sign-in'
+    | '/email'
     | '/orgs/$slug'
     | '/'
     | '/examples/ai'
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/sign-in'
+    | '/email'
     | '/orgs/$slug'
     | '/'
     | '/examples/ai'
@@ -204,6 +215,7 @@ export interface FileRouteTypes {
     | '/_sidebar'
     | '/_spotlight'
     | '/sign-in'
+    | '/_spotlight/email'
     | '/orgs/$slug'
     | '/_sidebar/'
     | '/_sidebar/examples/ai'
@@ -319,6 +331,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/orgs/$slug'
       preLoaderRoute: typeof OrgsSlugRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_spotlight/email': {
+      id: '/_spotlight/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof SpotlightEmailRouteImport
+      parentRoute: typeof SpotlightRoute
     }
     '/_spotlight/orgs/new': {
       id: '/_spotlight/orgs/new'
@@ -449,11 +468,13 @@ const SidebarRouteWithChildren =
   SidebarRoute._addFileChildren(SidebarRouteChildren)
 
 interface SpotlightRouteChildren {
+  SpotlightEmailRoute: typeof SpotlightEmailRoute
   SpotlightInviteIdRoute: typeof SpotlightInviteIdRoute
   SpotlightOrgsNewRoute: typeof SpotlightOrgsNewRoute
 }
 
 const SpotlightRouteChildren: SpotlightRouteChildren = {
+  SpotlightEmailRoute: SpotlightEmailRoute,
   SpotlightInviteIdRoute: SpotlightInviteIdRoute,
   SpotlightOrgsNewRoute: SpotlightOrgsNewRoute,
 }

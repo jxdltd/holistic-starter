@@ -4,7 +4,7 @@ import { Badge } from "@repo/ui/components/badge";
 import { Button } from "@repo/ui/components/button";
 import { Separator } from "@repo/ui/components/separator";
 import { IconBrandGithub, IconBrandGoogleFilled } from "@tabler/icons-react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import z from "zod";
 import { Logo } from "../components/logo";
@@ -34,6 +34,7 @@ const formSchema = z.object({
 });
 
 function RouteComponent() {
+	const router = useRouter();
 	const lastMethod = auth.getLastUsedLoginMethod();
 
 	const { enabledProviders } = Route.useLoaderData();
@@ -47,6 +48,7 @@ function RouteComponent() {
 		},
 		onSubmit: ({ value }) => {
 			auth.signIn.magicLink({ email: value.email });
+			router.navigate({ to: "/email" });
 		},
 	});
 
@@ -72,7 +74,7 @@ function RouteComponent() {
 						</form.SubmitButton>
 					</form.AppForm>
 				</form>
-				<Separator />
+				{enabledProviders.github || (enabledProviders.google && <Separator />)}
 				{enabledProviders.github && (
 					<Button
 						className="w-full"
